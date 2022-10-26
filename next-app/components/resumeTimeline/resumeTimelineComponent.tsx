@@ -5,8 +5,8 @@ import { useTranslation } from 'next-i18next';
 import React, { FunctionComponent } from 'react';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 
-import { ResumeElementType } from '../../enumerations/ResumeElementType';
-import { IResumeElement } from '../../types/IResumeElement';
+import { ResumeElementType } from '../../enumerations';
+import { IResumeElement } from '../../types';
 
 /**
  * Interface for the resume timeline properties.

@@ -1,9 +1,11 @@
 /**
  * Valid type options for one resume element.
  */
-export enum ResumeElementType {
+enum ResumeElementType {
     None = 0,
     WorkExperience = 1,
     Education = 2,
-    Social = 3
+    Social = 3,
 }
+
+export default ResumeElementType;

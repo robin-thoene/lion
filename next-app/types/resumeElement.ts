@@ -1,6 +1,6 @@
-import { ResumeElementType } from '../enumerations/ResumeElementType';
+import { ResumeElementType } from '../enumerations';
 
-export interface IResumeElement {
+interface IResumeElement {
     /** The translation key for the position. */
     positionKey: string;
     /** The name of the city. */
@@ -20,3 +20,5 @@ export interface IResumeElement {
     /** Whether the element is work experience or education data. */
     resumeElementType: ResumeElementType;
 }
+
+export type { IResumeElement };
