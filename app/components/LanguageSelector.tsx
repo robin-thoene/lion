@@ -28,10 +28,8 @@ export const LanguageSelector: FunctionComponent = () => {
             <ul tabIndex={0} className="dropdown-content bg-white menu shadow rounded-box w-40">
                 <li className={`${i18n.language === 'en' && 'disabled'}`}>
                     {i18n.language !== 'en' ? (
-                        <Link href={router.asPath} locale={'en'}>
-                            <a aria-label={t('Language_Button_En_Aria_Label')} className="p-3 flex justify-center active:bg-black">
-                                {t('Language_Option_En')}
-                            </a>
+                        <Link aria-label={t('Language_Button_En_Aria_Label')} className="p-3 flex justify-center active:bg-black" href={router.asPath} locale={'en'}>
+                            {t('Language_Option_En')}
                         </Link>
                     ) : (
                         <div className="p-3 flex justify-center">{t('Language_Option_En')}</div>
@@ -39,10 +37,8 @@ export const LanguageSelector: FunctionComponent = () => {
                 </li>
                 <li className={`${i18n.language === 'de' && 'disabled'}`}>
                     {i18n.language !== 'de' ? (
-                        <Link href={router.asPath} locale={'de'}>
-                            <a aria-label={t('Language_Button_De_Aria_Label')} className="p-3 flex justify-center active:bg-black">
-                                {t('Language_Option_De')}
-                            </a>
+                        <Link aria-label={t('Language_Button_De_Aria_Label')} className="p-3 flex justify-center active:bg-black" href={router.asPath} locale={'de'}>
+                            {t('Language_Option_De')}
                         </Link>
                     ) : (
                         <div className="p-3 flex justify-center">{t('Language_Option_De')}</div>
