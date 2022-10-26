@@ -5,9 +5,9 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React from 'react';
 
 import resumeData from '../assets/resume.json';
-import { BasicLayout } from '../components/layouts/BasicLayout';
-import { ResumeTimeline } from '../components/ResumeTimeline';
-import { SkillTile } from '../components/SkillTile';
+import BasicLayout from '../components/layouts/basicLayout';
+import ResumeTimeline from '../components/resumeTimeline';
+import SkillTile from '../components/skillTile';
 import { IResumeElement } from '../types/IResumeElement';
 
 /**

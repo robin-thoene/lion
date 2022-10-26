@@ -1,4 +1,4 @@
-import { ResumeElementType } from './ResumeElementType';
+import { ResumeElementType } from '../enumerations/ResumeElementType';
 
 export interface IResumeElement {
     /** The translation key for the position. */
