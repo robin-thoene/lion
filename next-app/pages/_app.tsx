@@ -5,8 +5,6 @@ import Head from 'next/head';
 import { appWithTranslation } from 'next-i18next';
 import React, { FunctionComponent } from 'react';
 
-import { BasicLayout } from '../components/layouts/BasicLayout';
-
 /**
  * The main entry point of the next js application.
  *
@@ -40,10 +38,10 @@ const App: FunctionComponent<AppProps> = ({ Component, pageProps }: AppProps) =>
     );
 
     return (
-        <BasicLayout>
+        <>
             <CustomHead />
             <Component {...pageProps} />
-        </BasicLayout>
+        </>
     );
 };
 
