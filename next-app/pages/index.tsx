@@ -8,7 +8,7 @@ import resumeData from '../assets/resume.json';
 import BasicLayout from '../components/layouts/basicLayout';
 import ResumeTimeline from '../components/resumeTimeline';
 import SkillTile from '../components/skillTile';
-import { IResumeElement } from '../types/IResumeElement';
+import { IResumeElement } from '../types';
 
 /**
  * Interface for the home page properties.
