@@ -1,6 +1,6 @@
 import 'react-vertical-timeline-component/style.min.css';
 
-import { AcademicCapIcon, BriefcaseIcon, ExternalLinkIcon, UserGroupIcon } from '@heroicons/react/solid';
+import { AcademicCapIcon, BriefcaseIcon, LinkIcon, UserGroupIcon } from '@heroicons/react/24/solid';
 import { useTranslation } from 'next-i18next';
 import React, { FunctionComponent } from 'react';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
@@ -32,7 +32,7 @@ export const ResumeTimeline: FunctionComponent<IResumeTimelineProps> = (props) =
     /** The icon to use for a social resume element. */
     const SocialIcon = <UserGroupIcon className="text-black" />;
     /** The icon for external links. */
-    const ExternalIcon = <ExternalLinkIcon className="h-4 w-4 text-black" />;
+    const ExternalIcon = <LinkIcon className="h-4 w-4 text-black" />;
 
     return (
         <VerticalTimeline>
