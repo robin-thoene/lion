@@ -5,13 +5,13 @@ import { useTranslation } from 'next-i18next';
 import React, { FunctionComponent } from 'react';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 
-import { IResumeElement } from '../types/IResumeElement';
-import { ResumeElementType } from '../types/ResumeElementType';
+import { ResumeElementType } from '../../enumerations/ResumeElementType';
+import { IResumeElement } from '../../types/IResumeElement';
 
 /**
  * Interface for the resume timeline properties.
  */
-export interface IResumeTimelineProps {
+interface IResumeTimelineProps {
     /** The data to display. */
     data: IResumeElement[];
 }
@@ -22,7 +22,7 @@ export interface IResumeTimelineProps {
  * @param {IResumeTimelineProps} props The properties.
  * @returns {FunctionComponent} The resume timeline component.
  */
-export const ResumeTimeline: FunctionComponent<IResumeTimelineProps> = (props) => {
+const ResumeTimeline: FunctionComponent<IResumeTimelineProps> = (props) => {
     /** Access to translations. */
     const { t } = useTranslation();
     /** The icon to use for an educational resume element. */
@@ -75,3 +75,5 @@ export const ResumeTimeline: FunctionComponent<IResumeTimelineProps> = (props) =
         </VerticalTimeline>
     );
 };
+
+export default ResumeTimeline;

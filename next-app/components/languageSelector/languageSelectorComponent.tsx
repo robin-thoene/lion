@@ -14,7 +14,7 @@ const icon = <LanguageIcon className="h-5 w-5 text-black" />;
  *
  * @returns {FunctionComponent} The language selector component.
  */
-export const LanguageSelector: FunctionComponent = () => {
+const LanguageSelector: FunctionComponent = () => {
     /** Access to translations. */
     const { t, i18n } = useTranslation();
     /** Access to the next js router. */
@@ -48,3 +48,5 @@ export const LanguageSelector: FunctionComponent = () => {
         </div>
     );
 };
+
+export default LanguageSelector;
