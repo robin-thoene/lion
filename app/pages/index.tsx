@@ -80,7 +80,7 @@ const Home: NextPage<IHomeProps> = (props) => {
                         <div className="m-3">
                             <SkillTile
                                 title="Docker"
-                                icon={<Image width={42} height={24} className="bg-transparent rounded-full" src="/images/docker.svg" alt="Docker" />}
+                                icon={<Image width={42} height={42} className="bg-transparent rounded-full" src="/images/docker.svg" alt="Docker" />}
                                 tileColor="#309AC9"
                             />
                         </div>
@@ -115,7 +115,7 @@ const Home: NextPage<IHomeProps> = (props) => {
                         <div className="m-3">
                             <SkillTile
                                 title="Next.js"
-                                icon={<Image width={42} height={24} className="bg-transparent rounded-full" src="/images/nextjs.svg" alt="Next.js" />}
+                                icon={<Image width={42} height={42} className="bg-transparent rounded-full" src="/images/nextjs.svg" alt="Next.js" />}
                                 tileColor="#000000"
                             />
                         </div>
