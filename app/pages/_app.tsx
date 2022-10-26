@@ -13,7 +13,7 @@ import React, { FunctionComponent } from 'react';
  */
 const App: FunctionComponent<AppProps> = ({ Component, pageProps }: AppProps) => {
     /** The public url to use for the open graph image access. */
-    const openGraphImageUrl = 'https://robin-thoene.com/open-graph.png';
+    const openGraphImageUrl = 'https://robin-thoene.com/open-graph.jpg';
 
     /**
      * The custom head component.
