@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { FunctionComponent, ReactElement, ReactNode } from 'react';
 
 import TopMenu from '../../menus/topMenu';
 
@@ -11,9 +11,9 @@ interface IBasicLayoutProps {
  * Basic layout that is rendered around it's child components.
  *
  * @param {IBasicLayoutProps} props The properties of the basic layout.
- * @returns {FunctionComponent} The basic layout component.
+ * @returns {ReactElement} The basic layout component.
  */
-const BasicLayout: FunctionComponent<IBasicLayoutProps> = (props) => {
+const BasicLayout: FunctionComponent<IBasicLayoutProps> = (props): ReactElement => {
     return (
         <div className="flex flex-1 flex-col max-h-screen">
             <TopMenu />
