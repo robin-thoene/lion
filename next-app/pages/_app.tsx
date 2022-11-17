@@ -18,7 +18,7 @@ const App: FunctionComponent<AppProps> = ({ Component, pageProps }: AppProps): R
     /**
      * The custom head component.
      *
-     * @returns {FunctionComponent} The custom html head to render.
+     * @returns {ReactElement} The custom html head to render.
      */
     const CustomHead = () => (
         <Head>
