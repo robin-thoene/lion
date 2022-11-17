@@ -2,7 +2,7 @@ import 'react-vertical-timeline-component/style.min.css';
 
 import { AcademicCapIcon, BriefcaseIcon, LinkIcon, UserGroupIcon } from '@heroicons/react/24/solid';
 import { useTranslation } from 'next-i18next';
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, ReactElement } from 'react';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 
 import { ResumeElementType } from '../../enumerations';
@@ -20,9 +20,9 @@ interface IResumeTimelineProps {
  * The timeline component to display resume data elements.
  *
  * @param {IResumeTimelineProps} props The properties.
- * @returns {FunctionComponent} The resume timeline component.
+ * @returns {ReactElement} The resume timeline component.
  */
-const ResumeTimeline: FunctionComponent<IResumeTimelineProps> = (props) => {
+const ResumeTimeline: FunctionComponent<IResumeTimelineProps> = (props): ReactElement => {
     /** Access to translations. */
     const { t } = useTranslation();
     /** The icon to use for an educational resume element. */
