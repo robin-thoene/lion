@@ -2,7 +2,7 @@ import { LanguageIcon } from '@heroicons/react/24/solid';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, ReactElement } from 'react';
 
 /**
  * The icon to use for the language selection opening button.
@@ -12,9 +12,9 @@ const icon = <LanguageIcon className="h-5 w-5 text-black" />;
 /**
  * Component to select and switch the application display language.
  *
- * @returns {FunctionComponent} The language selector component.
+ * @returns {ReactElement} The language selector component.
  */
-const LanguageSelector: FunctionComponent = () => {
+const LanguageSelector: FunctionComponent = (): ReactElement => {
     /** Access to translations. */
     const { t, i18n } = useTranslation();
     /** Access to the next js router. */
