@@ -3,15 +3,15 @@ import '../styles/global-styles.css';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { appWithTranslation } from 'next-i18next';
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, ReactElement } from 'react';
 
 /**
  * The main entry point of the next js application.
  *
  * @param {AppProps} param0 The properties of the app component.
- * @returns {FunctionComponent} The application component.
+ * @returns {ReactElement} The application component.
  */
-const App: FunctionComponent<AppProps> = ({ Component, pageProps }: AppProps) => {
+const App: FunctionComponent<AppProps> = ({ Component, pageProps }: AppProps): ReactElement => {
     /** The public url to use for the open graph image access. */
     const openGraphImageUrl = 'https://robin-thoene.com/open-graph.jpg';
 
