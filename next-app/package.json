@@ -6,7 +6,7 @@
         "dev": "yarn lint && next dev",
         "build": "yarn lint && next build",
         "start": "next start",
-        "lint": "next lint --dir . --max-warnings=0"
+        "lint": "tsc && next lint --dir . --max-warnings=0"
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^6.2.1",
