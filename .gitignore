@@ -337,5 +337,5 @@ ASALocalRun/
 Ui/Ui.Web/ClientApp/package-lock.json
 
 !launchSettings.json
-Ui/.DS_Store
-.DS_Store
+**/*.DS_Store
+tsconfig.tsbuildinfo
