@@ -17,7 +17,7 @@ const BasicLayout: FunctionComponent<IBasicLayoutProps> = (props): ReactElement 
     return (
         <div className="flex flex-1 flex-col max-h-screen">
             <TopMenu />
-            <div className="flex flex-1 flex-col bg-gray-50">{props.children}</div>
+            <div className="flex flex-1 flex-col">{props.children}</div>
         </div>
     );
 };

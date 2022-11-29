@@ -21,10 +21,10 @@ interface ISkillTileProps {
 const SkillTile: FunctionComponent<ISkillTileProps> = (props): ReactElement => {
     return (
         <div style={{ backgroundColor: props.tileColor }} className="flex flex-col justify-center items-center rounded-lg w-44 p-7 shadow">
-            <div className="flex justify-center bg-gray-50 rounded-full w-16 h-16 p-2">
+            <div className="flex justify-center bg-white rounded-full w-16 h-16 p-2">
                 <div className="flex justify-center items-center max-w-max max-h-full">{props.icon}</div>
             </div>
-            <div className="flex justify-center mt-3 text-base font-bold text-black rounded-full bg-gray-50 px-3 py-1">{props.title}</div>
+            <div className="flex justify-center mt-3 text-base font-bold rounded-full bg-white text-black px-3 py-1">{props.title}</div>
         </div>
     );
 };

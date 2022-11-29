@@ -13,7 +13,7 @@ body,
 }
 
 * {
-    @apply text-sm text-black;
+    @apply text-sm;
 }
 
 h1 {
@@ -33,7 +33,7 @@ h4 {
 }
 
 .vertical-timeline-element-content {
-    @apply shadow !important;
+    @apply shadow bg-base-200 !important;
 }
 
 .vertical-timeline-element-icon {
@@ -41,5 +41,5 @@ h4 {
 }
 
 .vertical-timeline::before {
-    @apply bg-black rounded-full !important;
+    @apply bg-base-200 rounded-full !important;
 }

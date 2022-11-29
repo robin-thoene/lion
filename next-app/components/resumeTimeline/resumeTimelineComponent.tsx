@@ -59,7 +59,7 @@ const ResumeTimeline: FunctionComponent<IResumeTimelineProps> = (props): ReactEl
                     }
                     date={`${new Date(re.startDate).getFullYear()} - ${re.endDate ? new Date(re.endDate).getFullYear() : t('Today')}`}
                 >
-                    <h3 className="text-black font-bold mb-2">{t(re.positionKey)}</h3>
+                    <h3 className="font-bold mb-2">{t(re.positionKey)}</h3>
                     <div className="flex items-center">
                         {re.institution}
                         {re.institutionLink && (
