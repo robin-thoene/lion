@@ -21,5 +21,6 @@
     "Language_Button_Aria_Label": "Open language menu",
     "Language_Button_En_Aria_Label": "Switch to English",
     "Language_Button_De_Aria_Label": "Umschalten auf Deutsch",
-    "ProfileImage_AltText": "Profile picture"
+    "ProfileImage_AltText": "Profile picture",
+    "DarkModeToggle_Toggle_Aria_Label": "Toggle between light and dark mode"
 }
