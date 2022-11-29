@@ -18,5 +18,14 @@ module.exports = {
     variants: {
         extend: {},
     },
+    daisyui: {
+        styled: true,
+        base: true,
+        utils: true,
+        logs: true,
+        rtl: false,
+        prefix: '',
+        themes: ['light', 'dark'],
+    },
     plugins: [require("daisyui")],
 };
