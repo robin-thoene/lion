@@ -7,7 +7,7 @@ import React, { FunctionComponent, ReactElement } from 'react';
 /**
  * The icon to use for the language selection opening button.
  */
-const icon = <LanguageIcon className="h-3 w-3 sm:h-5 sm:w-5" />;
+const icon = <LanguageIcon className="h-5 w-5" />;
 
 /**
  * Component to select and switch the application display language.
@@ -22,7 +22,7 @@ const LanguageSelector: FunctionComponent = (): ReactElement => {
 
     return (
         <div className="dropdown dropdown-end">
-            <label aria-label={t('Language_Button_Aria_Label')} tabIndex={0} className="btn btn-circle btn-ghost mb-1 sm:h-12 sm:w-12 min-h-8 h-8 w-8 animate-none">
+            <label aria-label={t('Language_Button_Aria_Label')} tabIndex={0} className="btn btn-circle btn-ghost h-12 w-12 animate-none">
                 {icon}
             </label>
             <ul tabIndex={0} className="dropdown-content bg-white dark:bg-base-100 menu shadow rounded-box w-40">

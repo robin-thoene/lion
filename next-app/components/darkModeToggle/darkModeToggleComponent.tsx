@@ -45,7 +45,7 @@ const DarkModeToggle: FunctionComponent = (): ReactElement => {
     };
 
     return (
-        <label className="swap swap-rotate btn btn-circle btn-ghost mb-1 sm:h-12 sm:w-12 min-h-8 h-8 w-8 animate-none">
+        <label className="swap swap-rotate btn btn-circle btn-ghost h-12 w-12 animate-none">
             <input
                 aria-label={t('DarkModeToggle_Toggle_Aria_Label')}
                 type="checkbox"
@@ -55,8 +55,8 @@ const DarkModeToggle: FunctionComponent = (): ReactElement => {
                     handleThemeSwitch(checked);
                 }}
             />
-            <SunIcon className="swap-off fill-current h-3 w-3 sm:h-5 sm:w-5" />
-            <MoonIcon className="swap-on fill-current current h-3 w-3 sm:h-5 sm:w-5" />
+            <SunIcon className="swap-off fill-current h-5 w-5" />
+            <MoonIcon className="swap-on fill-current current h-5 w-5" />
         </label>
     );
 };
