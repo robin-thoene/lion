@@ -43,19 +43,19 @@ const ResumeTimeline: FunctionComponent<IResumeTimelineProps> = (props): ReactEl
                         re.resumeElementType === ResumeElementType.Education
                             ? 'bg-blue-200'
                             : re.resumeElementType === ResumeElementType.WorkExperience
-                                ? 'bg-red-200'
-                                : re.resumeElementType === ResumeElementType.Social
-                                    ? 'bg-green-200'
-                                    : 'bg-black'
+                            ? 'bg-red-200'
+                            : re.resumeElementType === ResumeElementType.Social
+                            ? 'bg-green-200'
+                            : 'bg-black'
                     }
                     icon={
                         re.resumeElementType === ResumeElementType.Education
                             ? EducationIcon
                             : re.resumeElementType === ResumeElementType.WorkExperience
-                                ? WorkExperienceIcon
-                                : re.resumeElementType === ResumeElementType.Social
-                                    ? SocialIcon
-                                    : null
+                            ? WorkExperienceIcon
+                            : re.resumeElementType === ResumeElementType.Social
+                            ? SocialIcon
+                            : null
                     }
                     date={`${new Date(re.startDate).getFullYear()} - ${re.endDate ? new Date(re.endDate).getFullYear() : t('Today')}`}
                 >

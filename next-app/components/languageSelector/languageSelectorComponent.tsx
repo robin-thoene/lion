@@ -22,13 +22,13 @@ const LanguageSelector: FunctionComponent = (): ReactElement => {
 
     return (
         <div className="dropdown dropdown-end">
-            <label aria-label={t('Language_Button_Aria_Label')} tabIndex={0} className="btn btn-circle btn-ghost h-12 w-12 animate-none">
+            <label aria-label={t('Language_Button_Aria_Label') ?? undefined} tabIndex={0} className="btn btn-circle btn-ghost h-12 w-12 animate-none">
                 {icon}
             </label>
             <ul tabIndex={0} className="dropdown-content bg-white dark:bg-base-100 menu shadow rounded-box w-40">
                 <li className={`${i18n.language === 'en' && 'disabled'}`}>
                     {i18n.language !== 'en' ? (
-                        <Link aria-label={t('Language_Button_En_Aria_Label')} className="p-3 flex justify-center" href={router.asPath} locale={'en'}>
+                        <Link aria-label={t('Language_Button_En_Aria_Label') ?? undefined} className="p-3 flex justify-center" href={router.asPath} locale={'en'}>
                             {t('Language_Option_En')}
                         </Link>
                     ) : (
@@ -37,7 +37,7 @@ const LanguageSelector: FunctionComponent = (): ReactElement => {
                 </li>
                 <li className={`${i18n.language === 'de' && 'disabled'}`}>
                     {i18n.language !== 'de' ? (
-                        <Link aria-label={t('Language_Button_De_Aria_Label')} className="p-3 flex justify-center" href={router.asPath} locale={'de'}>
+                        <Link aria-label={t('Language_Button_De_Aria_Label') ?? undefined} className="p-3 flex justify-center" href={router.asPath} locale={'de'}>
                             {t('Language_Option_De')}
                         </Link>
                     ) : (
