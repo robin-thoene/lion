@@ -47,7 +47,7 @@ const DarkModeToggle: FunctionComponent = (): ReactElement => {
     return (
         <label className="swap swap-rotate btn btn-circle btn-ghost h-12 w-12 animate-none">
             <input
-                aria-label={t('DarkModeToggle_Toggle_Aria_Label')}
+                aria-label={t('DarkModeToggle_Toggle_Aria_Label') ?? undefined}
                 type="checkbox"
                 checked={darkModeEnabled}
                 onChange={(event) => {
