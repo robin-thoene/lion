@@ -20,7 +20,6 @@ interface IHomeProps {
 
 /**
  * The page component to render at "/".
- *
  * @param {IHomeProps} props The home page properties.
  * @returns {NextPage} The home page component.
  */
@@ -128,7 +127,6 @@ const Home: NextPage<IHomeProps> = (props) => {
 
 /**
  * Server side executed method to inject properties into the component.
- *
  * @returns {Promise<{props: IHomeProps}>} The props object to inject in the component.
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

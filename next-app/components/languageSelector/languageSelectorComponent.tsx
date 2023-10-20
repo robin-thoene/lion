@@ -11,7 +11,6 @@ const icon = <LanguageIcon className="h-5 w-5" />;
 
 /**
  * Component to select and switch the application display language.
- *
  * @returns {ReactElement} The language selector component.
  */
 const LanguageSelector: FunctionComponent = (): ReactElement => {

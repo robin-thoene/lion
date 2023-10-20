@@ -7,7 +7,6 @@ import LanguageSelector from '../../languageSelector';
 
 /**
  * Top menu that contains routes and actions.
- *
  * @returns {ReactElement} The top menu component.
  */
 const TopMenu: FunctionComponent = (): ReactElement => {
