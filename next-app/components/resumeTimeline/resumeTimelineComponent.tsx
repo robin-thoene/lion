@@ -18,7 +18,6 @@ interface IResumeTimelineProps {
 
 /**
  * The timeline component to display resume data elements.
- *
  * @param {IResumeTimelineProps} props The properties.
  * @returns {ReactElement} The resume timeline component.
  */

@@ -4,7 +4,6 @@ import React, { FunctionComponent, ReactElement, useEffect, useState } from 'rea
 
 /**
  * Component to activate / de-activate the dark mode using a UI toggle.
- *
  * @returns {ReactElement} The dark mode toggle component.
  */
 const DarkModeToggle: FunctionComponent = (): ReactElement => {
@@ -29,7 +28,6 @@ const DarkModeToggle: FunctionComponent = (): ReactElement => {
 
     /**
      * Handle switch between light and dark theme.
-     *
      * @param {boolean} enableDarkMode Whether the dark mode shall be enabled or not.
      */
     const handleThemeSwitch = (enableDarkMode: boolean) => {

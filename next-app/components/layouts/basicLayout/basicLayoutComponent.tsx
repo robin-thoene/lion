@@ -9,7 +9,6 @@ interface IBasicLayoutProps {
 
 /**
  * Basic layout that is rendered around it's child components.
- *
  * @param {IBasicLayoutProps} props The properties of the basic layout.
  * @returns {ReactElement} The basic layout component.
  */

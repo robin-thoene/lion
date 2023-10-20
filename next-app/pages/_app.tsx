@@ -7,7 +7,6 @@ import React, { FunctionComponent, ReactElement } from 'react';
 
 /**
  * The main entry point of the next js application.
- *
  * @param {AppProps} param0 The properties of the app component.
  * @returns {ReactElement} The application component.
  */
@@ -17,7 +16,6 @@ const App: FunctionComponent<AppProps> = ({ Component, pageProps }: AppProps): R
 
     /**
      * The custom head component.
-     *
      * @returns {ReactElement} The custom html head to render.
      */
     const CustomHead = () => (

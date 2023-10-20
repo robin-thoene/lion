@@ -14,7 +14,6 @@ interface ISkillTileProps {
 
 /**
  * Display component for one skill.
- *
  * @param {ISkillTileProps} props The properties of the skill tile.
  * @returns {ReactElement} The rendered skill component.
  */
