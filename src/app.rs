@@ -2,6 +2,7 @@ leptos_i18n::load_locales!();
 
 use i18n::*;
 use leptos::*;
+use leptos_icons::*;
 use leptos_meta::*;
 use leptos_router::*;
 
@@ -38,10 +39,10 @@ fn Home() -> impl IntoView {
         <Html class="dark"/>
         <main>
             <div class="max-w-screen-2xl">
-                <div class="flex justify-between">
-                    <div>
+                <div class="w-full flex justify-between fixed bg-white dark:bg-black top-0 left-0 p-6">
+                    <div class="flex flex-row">
                         <a href="https://github.com/robin-thoene" target="_blank" rel="noreferrer">
-                            Github
+                            <Icon class="h-5 w-5" icon=Icon::from(FaIcon::FaGithubBrands)/>
                         </a>
                         <a
                             class="ml-4"
@@ -49,7 +50,7 @@ fn Home() -> impl IntoView {
                             target="_blank"
                             rel="noreferrer"
                         >
-                            Linkedin
+                            <Icon class="h-5 w-5" icon=Icon::from(FaIcon::FaLinkedinBrands)/>
                         </a>
                         <a
                             class="ml-4"
@@ -57,7 +58,7 @@ fn Home() -> impl IntoView {
                             target="_blank"
                             rel="noreferrer"
                         >
-                            Xing
+                            <Icon class="h-5 w-5" icon=Icon::from(FaIcon::FaXingBrands)/>
                         </a>
                     </div>
                     <div>
