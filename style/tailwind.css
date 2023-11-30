@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    @apply flex justify-center min-h-screen bg-white text-black dark:bg-black dark:text-white;
+}
+
+p {
+    @apply my-4;
+}
