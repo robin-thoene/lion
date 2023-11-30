@@ -1,3 +1,5 @@
 {
-  "test": "Hallo Welt"
+  "education_headline": "Ausbildung",
+  "work_experience_headline": "Erfahrung",
+  "side_projects_headline": "Nebenprojekte"
 }

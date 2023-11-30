@@ -1,3 +1,5 @@
 {
-  "test": "Hello World"
+  "education_headline": "Education",
+  "work_experience_headline": "Work experience",
+  "side_projects_headline": "Side projects"
 }
