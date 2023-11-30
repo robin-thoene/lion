@@ -25,11 +25,48 @@ pub fn App() -> impl IntoView {
 fn Home() -> impl IntoView {
     let i18n = use_i18n();
 
+    let set_locale_german = move |_| {
+        i18n.set_locale(Locale::de);
+    };
+
+    let set_locale_english = move |_| {
+        i18n.set_locale(Locale::en);
+    };
+
     view! {
         <Title text="Robin Thöne"/>
         <Html class="dark"/>
-        <main>        
+        <main>
             <div class="max-w-screen-2xl">
+                <div class="flex justify-between">
+                    <div>
+                        <a href="https://github.com/robin-thoene" target="_blank" rel="noreferrer">
+                            Github
+                        </a>
+                        <a
+                            class="ml-4"
+                            href="https://linkedin.com/in/robin-thöne-681870205"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            Linkedin
+                        </a>
+                        <a
+                            class="ml-4"
+                            href="https://www.xing.com/profile/Robin_Thoene"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            Xing
+                        </a>
+                    </div>
+                    <div>
+                        <button class="mr-4" on:click=set_locale_english>
+                            en
+                        </button>
+                        <button on:click=set_locale_german>de</button>
+                    </div>
+                </div>
                 <p>{t!(i18n, test)}</p>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consequat nisl vel pretium lectus. Malesuada fames ac turpis egestas sed tempus. Sagittis id consectetur purus ut faucibus pulvinar. Erat nam at lectus urna duis. Dictumst quisque sagittis purus sit amet volutpat. Vitae elementum curabitur vitae nunc sed. In mollis nunc sed id semper risus in. Vel pharetra vel turpis nunc eget lorem dolor sed. Adipiscing enim eu turpis egestas pretium aenean. Pellentesque adipiscing commodo elit at imperdiet dui. Euismod lacinia at quis risus sed. Sed id semper risus in hendrerit gravida. Gravida in fermentum et sollicitudin ac. Sed ullamcorper morbi tincidunt ornare. Urna porttitor rhoncus dolor purus non enim praesent elementum. Sit amet tellus cras adipiscing enim eu. Elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus. A cras semper auctor neque vitae. Egestas congue quisque egestas diam in.

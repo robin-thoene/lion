@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-    @apply flex justify-center min-h-screen bg-white text-black dark:bg-black dark:text-white;
+    @apply flex justify-center min-h-screen bg-white text-black dark:bg-black dark:text-white p-6;
 }
 
 p {
