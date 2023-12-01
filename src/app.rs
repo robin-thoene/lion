@@ -36,7 +36,6 @@ fn Home() -> impl IntoView {
 
     view! {
         <Title text="Robin Thöne"/>
-        <Html class="dark"/>
         <main class="w-screen max-w-screen-2xl p-6">
             <div class="max-w-screen-2xl fixed inset-x-0 mx-auto w-full flex justify-between bg-white dark:bg-black top-0 left-0 p-6">
                 <div class="flex flex-row">
