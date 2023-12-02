@@ -83,6 +83,32 @@ fn Home() -> impl IntoView {
             <p>TODO: work experience timeline</p>
             <h2>{t!(i18n, side_projects_headline)}</h2>
             <p>TODO: projects</p>
+            <p>
+                <div>regular</div>
+                <div>
+                    <i>italic</i>
+                </div>
+                <div>
+                    <b>bold</b>
+                </div>
+                <div>
+                    <i>
+                        <b>italic and bold</b>
+                    </i>
+                </div>
+                <div class="font-extrabold">extra bold</div>
+                <div class="font-extrabold italic">italic and extra bold</div>
+                <div class="font-extralight">extra light</div>
+                <div class="font-extralight italic">italic and extra light</div>
+                <div class="font-light">light</div>
+                <div class="font-light italic">italic and light</div>
+                <div class="font-medium">medium</div>
+                <div class="font-medium italic">italic and medium</div>
+                <div class="font-semibold">semibold</div>
+                <div class="font-semibold italic">italic and semibold</div>
+                <div class="font-thin">thin</div>
+                <div class="font-thin italic">italic and thin</div>
+            </p>
         </main>
     }
 }
