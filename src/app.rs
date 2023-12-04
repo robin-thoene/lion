@@ -36,6 +36,18 @@ fn Home() -> impl IntoView {
 
     view! {
         <Title text="Robin Thöne"/>
+        <Meta name="description" content="Robin Thöne - Software Developer"/>
+        <Meta name="robots" content="index, follow"/>
+        <Meta property="og:title" content="Robin Thöne"/>
+        <Meta property="og:type" content="website"/>
+        <Meta property="og:description" content="Robin Thöne - Software Developer"/>
+        <Meta property="og:image" content="https://robin-thoene.com/open-graph.jpg"/>
+        <Meta property="og:locale" content="en_US"/>
+        <Meta property="og:locale:alternate" content="de_DE"/>
+        <Meta
+            name="google-site-verification"
+            content="6E4fkyF9xXTXSHWCY2loZyjTPYV3DS6rMEEXRBuW0TU"
+        />
         <main class="w-screen max-w-screen-2xl p-6">
             <div class="max-w-screen-2xl fixed inset-x-0 mx-auto w-full flex justify-between bg-white dark:bg-black top-0 left-0 p-6">
                 <div class="flex flex-row">
