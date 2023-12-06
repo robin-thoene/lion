@@ -1,5 +1,6 @@
 use cfg_if::cfg_if;
 pub mod app;
+pub mod components;
 pub mod fallback;
 
 cfg_if! { if #[cfg(feature = "hydrate")] {
@@ -18,3 +19,4 @@ cfg_if! { if #[cfg(feature = "hydrate")] {
         });
     }
 }}
+
