@@ -1,10 +1,8 @@
-leptos_i18n::load_locales!();
-
-use i18n::*;
 use leptos::*;
 use leptos_meta::*;
 use leptos_router::*;
 
+use crate::i18n::*;
 use crate::components::top_nav::TopNav;
 
 #[component]

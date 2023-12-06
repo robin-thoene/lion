@@ -1,7 +1,7 @@
 use leptos::*;
 use leptos_icons::*;
 
-use crate::app::i18n::*;
+use crate::i18n::*;
 
 #[component]
 pub fn TopNav() -> impl IntoView {
