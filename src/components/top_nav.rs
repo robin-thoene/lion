@@ -1,6 +1,7 @@
 use leptos::*;
 use leptos_icons::*;
 
+use crate::components::button::Button;
 use crate::i18n::*;
 
 #[component]
@@ -38,20 +39,19 @@ pub fn TopNav() -> impl IntoView {
                     <Icon class="h-5 w-5" icon=Icon::from(FaIcon::FaXingBrands)/>
                 </a>
             </div>
-            <div>
-                <button
-                    class="mr-4"
-                    class=("text-primary", move || i18n.get_locale() == Locale::en)
-                    on:click=set_locale_english
-                >
-                    [en]
-                </button>
-                <button
-                    class=("text-primary", move || i18n.get_locale() == Locale::de)
-                    on:click=set_locale_german
-                >
-                    [de]
-                </button>
+            <div class="flex">
+                <div class="mr-4">
+                    <Button
+                        is_primary=move || i18n.get_locale() == Locale::en
+                        text="en".to_string()
+                        click=set_locale_english
+                    />
+                </div>
+                <Button
+                    is_primary=move || i18n.get_locale() == Locale::de
+                    text="de".to_string()
+                    click=set_locale_german
+                />
             </div>
         </div>
     }
