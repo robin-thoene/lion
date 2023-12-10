@@ -2,8 +2,9 @@ use leptos::*;
 use leptos_meta::*;
 use leptos_router::*;
 
-use crate::i18n::*;
+use crate::components::timeline::Timeline;
 use crate::components::top_nav::TopNav;
+use crate::i18n::*;
 
 #[component]
 pub fn App() -> impl IntoView {
@@ -24,7 +25,13 @@ pub fn App() -> impl IntoView {
 #[component]
 fn Home() -> impl IntoView {
     let i18n = use_i18n();
-    
+
+    let test = vec![
+        view! { <div>1</div> }.into_view(),
+        view! { <div>2</div> }.into_view(),
+        view! { <div>3</div> }.into_view(),
+    ];
+
     view! {
         <Title text="Robin Thöne"/>
         <Meta name="description" content="Robin Thöne - Software Developer"/>
@@ -74,6 +81,9 @@ fn Home() -> impl IntoView {
                 <div class="font-semibold italic">italic and semibold</div>
                 <div class="font-thin">thin</div>
                 <div class="font-thin italic">italic and thin</div>
+            </p>
+            <p>
+                <Timeline content=test/>
             </p>
         </main>
     }
