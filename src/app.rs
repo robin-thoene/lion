@@ -2,7 +2,7 @@ use leptos::*;
 use leptos_meta::*;
 use leptos_router::*;
 
-use crate::components::timeline::Timeline;
+use crate::components::timeline::{Timeline, TimelineElement};
 use crate::components::top_nav::TopNav;
 use crate::i18n::*;
 
@@ -27,9 +27,24 @@ fn Home() -> impl IntoView {
     let i18n = use_i18n();
 
     let test = vec![
-        view! { <div>1</div> }.into_view(),
-        view! { <div>2</div> }.into_view(),
-        view! { <div>3</div> }.into_view(),
+        TimelineElement {
+            title: String::from("Title"),
+            subtitle: String::from("Subtitle"),
+            time: String::from("2022"),
+            content: view! {<div>Content</div>}.into_view(),
+        },
+        TimelineElement {
+            title: String::from("Title"),
+            subtitle: String::from("Subtitle"),
+            time: String::from("2022"),
+            content: view! {<div>Content</div>}.into_view(),
+        },
+        TimelineElement {
+            title: String::from("Title"),
+            subtitle: String::from("Subtitle"),
+            time: String::from("2022"),
+            content: view! {<div>Content</div>}.into_view(),
+        },
     ];
 
     view! {
