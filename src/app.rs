@@ -133,10 +133,11 @@ fn Home() -> impl IntoView {
                         </p>
                     </div>
                 </div>
-                <div>
-                    <h2 class="text-center">{t!(i18n, side_projects_headline)}</h2>
-                    <p>TODO: projects</p>
-                </div>
+                // TODO: Implement this
+                // <div>
+                //     <h2 class="text-center">{t!(i18n, side_projects_headline)}</h2>
+                //     <p>TODO: projects</p>
+                // </div>
             </div>
         </main>
     }
