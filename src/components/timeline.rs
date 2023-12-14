@@ -1,8 +1,8 @@
 use leptos::*;
 
 pub struct TimelineElement {
-    pub title: String,
-    pub subtitle: String,
+    pub title: View,
+    pub subtitle: View,
     pub start_year: u32,
     pub end_year: Option<u32>,
     pub content: Option<View>,

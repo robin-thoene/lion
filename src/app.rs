@@ -28,38 +28,39 @@ fn Home() -> impl IntoView {
 
     let experience_timeline_elements = vec![
         TimelineElement {
-            title: String::from("Senior Software Developer"),
-            subtitle: String::from("Enpal"),
+            title: view! {<>Senior {t!(i18n, work_title_software_developer)}</>}.into_view(),
+            subtitle: view! {"Enpal"}.into_view(),
             start_year: 2023,
             end_year: None,
             content: None,
         },
         TimelineElement {
-            title: String::from("Software Developer"),
-            subtitle: String::from("DEVDEER GmbH"),
+            title: view! {<>{t!(i18n, work_title_software_developer)}</>}.into_view(),
+            subtitle: view! {"DEVDEER GmbH"}.into_view(),
             start_year: 2020,
             end_year: Some(2023),
             content: None,
         },
         TimelineElement {
-            title: String::from("Training as IT specialist - application development"),
-            subtitle: String::from("AV-TEST GmbH"),
+            title: view! {<>{t!(i18n, apprenticeship_title_software_developer)}</>}.into_view(),
+            subtitle: view! {"AV-TEST GmbH"}.into_view(),
             start_year: 2017,
             end_year: Some(2020),
             content: None,
         },
         TimelineElement {
-            title: String::from("Voluntary Ecological Year"),
-            subtitle: String::from(
-                "Stiftung Umwelt, Natur- und Klimaschutz des Landes Sachsen-Anhalt",
-            ),
+            title: view! {<>{t!(i18n, work_title_ecological_volunteer)}</>}.into_view(),
+            subtitle: view! {
+                "Stiftung Umwelt, Natur- und Klimaschutz des Landes Sachsen-Anhalt"
+            }
+            .into_view(),
             start_year: 2016,
             end_year: Some(2017),
             content: None,
         },
         TimelineElement {
-            title: String::from("Dual study - Auditor"),
-            subtitle: String::from("PricewaterhouseCoopers GmbH"),
+            title: view! {<>{t!(i18n, dual_study_auditor)}</>}.into_view(),
+            subtitle: view! {"PricewaterhouseCoopers GmbH"}.into_view(),
             start_year: 2015,
             end_year: Some(2016),
             content: None,
@@ -68,29 +69,29 @@ fn Home() -> impl IntoView {
 
     let education_timeline_elements = vec![
         TimelineElement {
-            title: String::from("Study - B. Sc. Business Informatics"),
-            subtitle: String::from("AKAD University"),
+            title: view! {<>{t!(i18n, education_university_business_informatics)}</>}.into_view(),
+            subtitle: view! {"AKAD University"}.into_view(),
             start_year: 2020,
             end_year: None,
             content: None,
         },
         TimelineElement {
-            title: String::from("Training as an IT specialist - application development"),
-            subtitle: String::from("Berufsbildende Schulen „Otto von Guericke"),
+            title: view! {<>{t!(i18n, apprenticeship_title_software_developer)}</>}.into_view(),
+            subtitle: view! {"Berufsbildende Schulen „Otto von Guericke“"}.into_view(),
             start_year: 2017,
             end_year: Some(2020),
             content: None,
         },
         TimelineElement {
-            title: String::from("Dual study - Auditor"),
-            subtitle: String::from("Duale Hochschule Baden-Württemberg"),
+            title: view! {<>{t!(i18n, dual_study_auditor)}</>}.into_view(),
+            subtitle: view! {"Duale Hochschule Baden-Württemberg"}.into_view(),
             start_year: 2015,
             end_year: Some(2016),
             content: None,
         },
         TimelineElement {
-            title: String::from("General university entrance qualification"),
-            subtitle: String::from("Berufsbildende Schulen 1 Goslar -Am Stadtgarten-"),
+            title: view! {<>{t!(i18n, education_a_levels)}</>}.into_view(),
+            subtitle: view! {"Berufsbildende Schulen 1 Goslar -Am Stadtgarten-"}.into_view(),
             start_year: 2012,
             end_year: Some(2015),
             content: None,
@@ -113,26 +114,30 @@ fn Home() -> impl IntoView {
         />
         <main class="w-screen max-w-screen-2xl p-6">
             <TopNav/>
-            <h1 class="text-center">Robin Thöne</h1>
-            <div class="flex justify-center">
-                <p>TODO: Profile</p>
-            </div>
-            <div class="flex flex-col md:flex-row w-full gap-6">
-                <div class="flex flex-col flex-1">
-                    <h2 class="text-center">{t!(i18n, education_headline)}</h2>
-                    <p>
-                        <Timeline content=education_timeline_elements/>
-                    </p>
+            <div class="flex flex-col gap-20">
+                <div class="flex justify-center">
+                    <img src="/profile.png" class="h-64 w-64 object-cover rounded-full"/>
                 </div>
-                <div class="flex flex-col flex-1">
-                    <h2 class="text-center">{t!(i18n, work_experience_headline)}</h2>
-                    <p>
-                        <Timeline content=experience_timeline_elements/>
-                    </p>
+                <h1 class="text-center">Robin Thöne</h1>
+                <div class="flex flex-col md:flex-row w-full gap-6">
+                    <div class="flex flex-col flex-1">
+                        <h2 class="text-center">{t!(i18n, education_headline)}</h2>
+                        <p>
+                            <Timeline content=education_timeline_elements/>
+                        </p>
+                    </div>
+                    <div class="flex flex-col flex-1">
+                        <h2 class="text-center">{t!(i18n, work_experience_headline)}</h2>
+                        <p>
+                            <Timeline content=experience_timeline_elements/>
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-center">{t!(i18n, side_projects_headline)}</h2>
+                    <p>TODO: projects</p>
                 </div>
             </div>
-            <h2 class="text-center">{t!(i18n, side_projects_headline)}</h2>
-            <p>TODO: projects</p>
         </main>
     }
 }

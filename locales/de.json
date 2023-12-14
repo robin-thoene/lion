@@ -1,5 +1,11 @@
 {
   "education_headline": "Ausbildung",
   "work_experience_headline": "Erfahrung",
-  "side_projects_headline": "Nebenprojekte"
+  "side_projects_headline": "Nebenprojekte",
+  "work_title_software_developer": "Softwareentwickler",
+  "apprenticeship_title_software_developer": "Ausbildung zum Fachinformatiker - Anwendungsentwicklung",
+  "work_title_ecological_volunteer": "Freiwilliges Ökologisches Jahr",
+  "dual_study_auditor": "Duales Studium - Wirtschaftsprüfer",
+  "education_a_levels": "Abitur",
+  "education_university_business_informatics": "B. Sc. Wirtschaftsinformatik"
 }
