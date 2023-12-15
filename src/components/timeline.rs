@@ -18,7 +18,7 @@ pub fn Element(data: TimelineElement) -> impl IntoView {
 
     view! {
         <div class="flex flex-col border rounded-lg p-3 gap-3">
-            <div class="bg-primary w-max rounded-2xl px-3 py-1">{time_display}</div>
+            <div class="bg-primary text-black w-max rounded-2xl px-3 py-1">{time_display}</div>
             <div class="font-bold">{data.title}</div>
             <div>{data.subtitle}</div>
             {data.content}

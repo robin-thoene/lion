@@ -116,7 +116,11 @@ fn Home() -> impl IntoView {
             <TopNav/>
             <div class="flex flex-col gap-20">
                 <div class="flex justify-center">
-                    <img src="/profile.png" class="h-64 w-64 object-cover rounded-full"/>
+                    <img
+                        alt=t!(i18n, profile_image_alt_text)
+                        src="/profile.png"
+                        class="h-64 w-64 object-cover rounded-full"
+                    />
                 </div>
                 <h1 class="text-center">Robin Thöne</h1>
                 <div class="flex flex-col md:flex-row w-full gap-6">
@@ -133,11 +137,11 @@ fn Home() -> impl IntoView {
                         </p>
                     </div>
                 </div>
-                // TODO: Implement this
-                // <div>
-                //     <h2 class="text-center">{t!(i18n, side_projects_headline)}</h2>
-                //     <p>TODO: projects</p>
-                // </div>
+            // TODO: Implement this
+            // <div>
+            // <h2 class="text-center">{t!(i18n, side_projects_headline)}</h2>
+            // <p>TODO: projects</p>
+            // </div>
             </div>
         </main>
     }

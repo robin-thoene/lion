@@ -19,10 +19,16 @@ pub fn TopNav() -> impl IntoView {
     view! {
         <div class="max-w-screen-2xl fixed inset-x-0 mx-auto w-full flex justify-between bg-white dark:bg-black top-0 left-0 p-6">
             <div class="flex flex-row">
-                <a href="https://github.com/robin-thoene" target="_blank" rel="noreferrer">
+                <a
+                    aria-label="GitHub"
+                    href="https://github.com/robin-thoene"
+                    target="_blank"
+                    rel="noreferrer"
+                >
                     <Icon class="h-5 w-5" icon=Icon::from(FaIcon::FaGithubBrands)/>
                 </a>
                 <a
+                    aria-label="LinkedIn"
                     class="ml-4"
                     href="https://linkedin.com/in/robin-thöne-681870205"
                     target="_blank"
@@ -31,6 +37,7 @@ pub fn TopNav() -> impl IntoView {
                     <Icon class="h-5 w-5" icon=Icon::from(FaIcon::FaLinkedinBrands)/>
                 </a>
                 <a
+                    aria-label="XING"
                     class="ml-4"
                     href="https://www.xing.com/profile/Robin_Thoene"
                     target="_blank"
