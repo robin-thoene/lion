@@ -12,7 +12,7 @@ env:
   REGISTRY_USER: ${{ secrets.REGISTRY_USER }}
   REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
   REGISTRY: ${{ secrets.REGISTRY }}
-  IMAGE_TAG: ${{ env.REGISTRY }}/lion:latest
+  IMAGE_TAG: ${{ secrets.REGISTRY }}/lion:latest
 
 jobs:
   build:
