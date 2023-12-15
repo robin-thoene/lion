@@ -118,8 +118,8 @@ fn Home() -> impl IntoView {
                 <div class="flex justify-center">
                     <img
                         alt=t!(i18n, profile_image_alt_text)
-                        src="/profile.png"
-                        class="h-64 w-64 object-cover rounded-full"
+                        src="/profile.webp"
+                        class="h-64 w-64 object-cover rounded-full overflow-hidden"
                     />
                 </div>
                 <h1 class="text-center">Robin Thöne</h1>
