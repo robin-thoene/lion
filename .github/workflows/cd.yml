@@ -32,6 +32,7 @@ jobs:
           ssh-keyscan ${{ env.SSH_HOST }} >> ${{ env.KNOWN_HOSTS_PATH }}
       - name: Run latest container
         run: |
+          ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'podman pull ${{ env.IMAGE_TAG }}'
           ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'podman stop ${{ env.CONTAINER_NAME }}'
           ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'podman rm ${{ env.CONTAINER_NAME }}'
           ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'podman run -d --name ${{ env.CONTAINER_NAME }} --network ${{ env.CONTAINER_NETWORK }} -p 8080:8080 ${{ env.IMAGE_TAG }}'
