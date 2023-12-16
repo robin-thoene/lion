@@ -28,6 +28,7 @@ jobs:
           touch ${{ env.LOCAL_SSH_KEY_PATH }}
           touch ${{ env.KNOWN_HOSTS_PATH }}
           echo "${{ env.SSH_KEY }}" >> ${{ env.LOCAL_SSH_KEY_PATH }}
+          chmod 400 ${{ env.LOCAL_SSH_KEY_PATH }}
           ssh-keyscan ${{ env.SSH_HOST }} >> ${{ env.KNOWN_HOSTS_PATH }}
       - name: Run latest container
         run: ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'podman stop ${{ env.CONTAINER_NAME }} | podman rm ${{ env.CONTAINER_NAME }} | podman run -d --name ${{ env.CONTAINER_NAME }} --network ${{ env.CONTAINER_NETWORK }} -p 8080:8080 ${{ env.IMAGE_TAG }}'
