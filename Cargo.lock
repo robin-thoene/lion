@@ -832,6 +832,7 @@ checksum = "f41f2deec9249d16ef6b1a8442fbe16013f67053797052aa0b7d2f5ebd0f0098"
 dependencies = [
  "icondata_core",
  "icondata_fa",
+ "icondata_fi",
 ]
 
 [[package]]
@@ -845,6 +846,15 @@ name = "icondata_fa"
 version = "0.0.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a515ecda53468cf4a383409da1708da2e4c00253561873c46304cd7f412e9414"
+dependencies = [
+ "icondata_core",
+]
+
+[[package]]
+name = "icondata_fi"
+version = "0.0.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a68806fd5abc6bcf395fc54f6193b0f9085aa2a6c740d72825e7e43be4d6a366"
 dependencies = [
  "icondata_core",
 ]
