@@ -7,7 +7,11 @@ where
     Fp: Fn() -> bool + 'static,
 {
     view! {
-        <button class=("text-primary", is_primary) on:click=click>
+        <button
+            class=move || { if is_primary() { "text-primary-alt dark:text-primary" } else { "" } }
+
+            on:click=click
+        >
             "["
             {text}
             "]"

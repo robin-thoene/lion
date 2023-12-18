@@ -173,6 +173,7 @@ fn Home() -> impl IntoView {
             name="google-site-verification"
             content="6E4fkyF9xXTXSHWCY2loZyjTPYV3DS6rMEEXRBuW0TU"
         />
+        <Link rel="preload" as_="image" href="/profile.webp"/>
         <main class="w-screen max-w-screen-2xl p-6">
             <TopNav/>
             <div class="flex flex-col gap-20">

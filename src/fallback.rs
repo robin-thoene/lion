@@ -7,6 +7,7 @@ cfg_if! { if #[cfg(feature = "ssr")] {
         response::IntoResponse,
         http::{Request, Response, StatusCode, Uri},
     };
+    use http::{HeaderValue, header::CACHE_CONTROL};
     use axum::response::Response as AxumResponse;
     use tower::ServiceExt;
     use tower_http::services::ServeDir;
@@ -33,7 +34,12 @@ cfg_if! { if #[cfg(feature = "ssr")] {
         // `ServeDir` implements `tower::Service` so we can call it with `tower::ServiceExt::oneshot`
         // This path is relative to the cargo root
         match ServeDir::new(root).oneshot(req).await {
-            Ok(res) => Ok(res.map(boxed)),
+            Ok(mut res) => {
+                if !uri.path().starts_with("/pkg/") {
+                    res.headers_mut().insert(CACHE_CONTROL, HeaderValue::from_static("max-age=86400"));
+                }
+                Ok(res.map(boxed))
+            },
             Err(err) => Err((
                 StatusCode::INTERNAL_SERVER_ERROR,
                 format!("Something went wrong: {err}"),
@@ -41,3 +47,4 @@ cfg_if! { if #[cfg(feature = "ssr")] {
         }
     }
 }}
+
