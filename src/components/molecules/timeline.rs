@@ -9,7 +9,7 @@ pub struct TimelineElement {
 }
 
 #[component]
-pub fn Element(data: TimelineElement) -> impl IntoView {
+fn Element(data: TimelineElement) -> impl IntoView {
     let time_display = if let Some(end_year) = data.end_year {
         format!("{} - {}", data.start_year, end_year)
     } else {

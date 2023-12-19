@@ -1,8 +1,9 @@
 use leptos::*;
 use leptos_icons::*;
 
-use crate::components::timeline::{Timeline, TimelineElement};
-use crate::components::top_nav::TopNav;
+use crate::components::atoms::project_card::ProjectCard;
+use crate::components::molecules::timeline::{Timeline, TimelineElement};
+use crate::components::organisms::top_nav::TopNav;
 use crate::i18n::*;
 
 #[component]
@@ -141,7 +142,7 @@ pub fn Home() -> impl IntoView {
         },
     ];
 
-    view! {        
+    view! {
         <main class="w-screen max-w-screen-2xl p-6">
             <TopNav/>
             <div class="flex flex-col gap-20">
@@ -155,24 +156,19 @@ pub fn Home() -> impl IntoView {
                 <h1 class="text-center">Robin Thöne</h1>
                 <div class="flex flex-col md:flex-row w-full gap-6">
                     <div class="flex flex-col flex-1">
-                        <h2 class="text-center">{t!(i18n, education_headline)}</h2>
-                        <p>
-                            <Timeline content=education_timeline_elements/>
-                        </p>
+                        <h2 class="text-center mb-8">{t!(i18n, education_headline)}</h2>
+                        <Timeline content=education_timeline_elements/>
                     </div>
+                    <div class="border"></div>
                     <div class="flex flex-col flex-1">
-                        <h2 class="text-center">{t!(i18n, work_experience_headline)}</h2>
-                        <p>
-                            <Timeline content=experience_timeline_elements/>
-                        </p>
+                        <h2 class="text-center mb-8">{t!(i18n, work_experience_headline)}</h2>
+                        <Timeline content=experience_timeline_elements/>
                     </div>
                 </div>
-                // TODO: Implement this
-                // <div>
-                // <h2 class="text-center">{t!(i18n, side_projects_headline)}</h2>
-                // <p>TODO: projects</p>
-                // </div>
-                <div>"TBD"</div>
+                <div>
+                    <h2 class="text-center mb-8">{t!(i18n, side_projects_headline)}</h2>
+                    <ProjectCard/>
+                </div>
             </div>
         </main>
     }

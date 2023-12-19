@@ -1,3 +1,5 @@
-pub mod top_nav;
-pub mod button;
-pub mod timeline;
+pub mod atoms;
+pub mod molecules;
+pub mod organisms;
+pub mod pages;
+
