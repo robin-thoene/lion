@@ -1,11 +1,8 @@
 use leptos::*;
 
-use crate::components::{
-    atoms::project_card::ProjectCard,
-    organisms::{
-        education_timeline::EducationTimeline, experience_timeline::ExperienceTimeline,
-        top_nav::TopNav,
-    },
+use crate::components::organisms::{
+    education_timeline::EducationTimeline, experience_timeline::ExperienceTimeline,
+    side_projects::SideProjects, top_nav::TopNav,
 };
 use crate::i18n::*;
 
@@ -38,7 +35,7 @@ pub fn Home() -> impl IntoView {
                 </div>
                 <div>
                     <h2 class="text-center mb-8">{t!(i18n, side_projects_headline)}</h2>
-                    <ProjectCard/>
+                    <SideProjects/>
                 </div>
             </div>
         </main>

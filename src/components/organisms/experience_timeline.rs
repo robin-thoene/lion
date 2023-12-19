@@ -1,14 +1,14 @@
 use leptos::*;
 use leptos_icons::*;
 
-use crate::components::molecules::timeline::{Timeline, TimelineElement};
+use crate::components::{atoms::timeline_element::TimelineEntry, molecules::timeline::Timeline};
 use crate::i18n::*;
 
 #[component]
 pub fn ExperienceTimeline() -> impl IntoView {
     let i18n = use_i18n();
     let data = vec![
-        TimelineElement {
+        TimelineEntry {
             title: view! {<>Senior {t!(i18n, work_title_software_developer)}</>}.into_view(),
             subtitle: view! {
                 <div class="flex">
@@ -22,7 +22,7 @@ pub fn ExperienceTimeline() -> impl IntoView {
             end_year: None,
             content: None,
         },
-        TimelineElement {
+        TimelineEntry {
             title: view! {<>{t!(i18n, work_title_software_developer)}</>}.into_view(),
             subtitle: view! {
                 <div class="flex">
@@ -36,7 +36,7 @@ pub fn ExperienceTimeline() -> impl IntoView {
             end_year: Some(2023),
             content: None,
         },
-        TimelineElement {
+        TimelineEntry {
             title: view! {<>{t!(i18n, apprenticeship_title_software_developer)}</>}.into_view(),
             subtitle: view! {
                 <div class="flex">
@@ -50,7 +50,7 @@ pub fn ExperienceTimeline() -> impl IntoView {
             end_year: Some(2020),
             content: None,
         },
-        TimelineElement {
+        TimelineEntry {
             title: view! {<>{t!(i18n, work_title_ecological_volunteer)}</>}.into_view(),
             subtitle: view! {
                 <div class="flex">
@@ -64,7 +64,7 @@ pub fn ExperienceTimeline() -> impl IntoView {
             end_year: Some(2017),
             content: None,
         },
-        TimelineElement {
+        TimelineEntry {
             title: view! {<>{t!(i18n, dual_study_auditor)}</>}.into_view(),
             subtitle: view! {
                 <div class="flex">
