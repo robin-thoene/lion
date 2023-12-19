@@ -1,6 +1,5 @@
 use leptos::*;
 use leptos_icons::*;
-use leptos_meta::*;
 
 use crate::components::timeline::{Timeline, TimelineElement};
 use crate::components::top_nav::TopNav;
@@ -142,21 +141,7 @@ pub fn Home() -> impl IntoView {
         },
     ];
 
-    view! {
-        <Title text="Robin Thöne"/>
-        <Meta name="description" content="Robin Thöne - Software Developer"/>
-        <Meta name="robots" content="index, follow"/>
-        <Meta property="og:title" content="Robin Thöne"/>
-        <Meta property="og:type" content="website"/>
-        <Meta property="og:description" content="Robin Thöne - Software Developer"/>
-        <Meta property="og:image" content="https://robin-thoene.com/open-graph.jpg"/>
-        <Meta property="og:locale" content="en_US"/>
-        <Meta property="og:locale:alternate" content="de_DE"/>
-        <Meta
-            name="google-site-verification"
-            content="6E4fkyF9xXTXSHWCY2loZyjTPYV3DS6rMEEXRBuW0TU"
-        />
-        <Link rel="preload" as_="image" href="/profile.webp"/>
+    view! {        
         <main class="w-screen max-w-screen-2xl p-6">
             <TopNav/>
             <div class="flex flex-col gap-20">
