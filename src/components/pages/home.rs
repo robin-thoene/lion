@@ -22,12 +22,11 @@ pub fn Home() -> impl IntoView {
                     />
                 </div>
                 <h1 class="text-center">Robin Thöne</h1>
-                <div class="flex flex-col md:flex-row w-full gap-6">
+                <div class="flex flex-col md:flex-row w-full gap-20 md:gap-6">
                     <div class="flex flex-col flex-1">
                         <h2 class="text-center mb-8">{t!(i18n, education_headline)}</h2>
                         <EducationTimeline/>
                     </div>
-                    <div class="border"></div>
                     <div class="flex flex-col flex-1">
                         <h2 class="text-center mb-8">{t!(i18n, work_experience_headline)}</h2>
                         <ExperienceTimeline/>
@@ -35,6 +34,9 @@ pub fn Home() -> impl IntoView {
                 </div>
                 <div>
                     <h2 class="text-center mb-8">{t!(i18n, side_projects_headline)}</h2>
+                    <div class="flex justify-center mb-8">
+                        <p class="max-w-xl text-justify">{t!(i18n, side_projects_description)}</p>
+                    </div>
                     <SideProjects/>
                 </div>
             </div>

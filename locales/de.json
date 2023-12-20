@@ -2,11 +2,19 @@
   "education_headline": "Ausbildung",
   "work_experience_headline": "Erfahrung",
   "side_projects_headline": "Nebenprojekte",
+  "side_projects_description": "Neben meiner Arbeit als Softwareentwickler setze ich in meiner Freizeit hin und wieder kleinere Projekte um. Meist um neue Technologien auszuprobieren, zu lernen und in einem praktischen Anwendungsfall zu verwenden. Im folgenden befindet sich eine Auswahl solcher Projekte.",
   "work_title_software_developer": "Softwareentwickler",
   "apprenticeship_title_software_developer": "Ausbildung zum Fachinformatiker - Anwendungsentwicklung",
   "work_title_ecological_volunteer": "Freiwilliges Ökologisches Jahr",
   "dual_study_auditor": "Duales Studium - Wirtschaftsprüfer",
   "education_a_levels": "Abitur",
   "education_university_business_informatics": "B. Sc. Wirtschaftsinformatik",
-  "profile_image_alt_text": "Profilbild"
+  "profile_image_alt_text": "Profilbild",
+  "project_description_lion": "Dieses Projekt beinhaltet den Quellcode dieser Webseite und ist das erste Projekt zum Testen des Rust Web Frameworks \"Leptos\".",
+  "project_description_harzerkurbelixe": "Dies war das erste Nebenprojekt, um Technologien für meinen ersten Vollzeitjob als Entwickler zu erlernen. Darüber hinaus hat dieser selbsterstellte Rad-Blog in den letzten Jahren Spenden für wohltätige Zwecke gesammelt.",
+  "project_description_fromsoft_boss_checker": "Eine kleine Anwendung für mich und meinen Freundeskreis, um den Fortschritt in unseren favorisierten FromSoftware Spielen zu tracken.",
+  "project_description_timewaste_tracker": "Projekt zum Ausprobieren von \"recharts\" und der Steam API, indem die Spielzeit einiger Steam Nutzer innerhalb der letzten zwei Wochen grafisch visualisiert wird.",
+  "project_description_tailwind_wysiwyg_editor": "\"What You See Is What You Get\" Editor unter Verwendung von \"Tailwind CSS\" mit Markdown als Zielformat.",
+  "project_description_fluent_wysiwyg_editor": "\"What You See Is What You Get\" Editor unter Verwendung von \"Fluent UI React\" mit Markdown und HTML als mögliche Zielformate.",
+  "project_description_signalr_chat": "Anonymer globaler Gruppenlivechat als kleine Konzeptanwendung, um die Technologie \"SignalR\" und ihre Implementierung auf Server- und Client-Seite zu testen."
 }
