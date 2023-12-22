@@ -1,7 +1,7 @@
 use leptos::*;
 use leptos_icons::*;
 
-use crate::components::button::Button;
+use crate::components::atoms::button::Button;
 use crate::i18n::*;
 
 #[component]
