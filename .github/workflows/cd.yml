@@ -38,4 +38,6 @@ jobs:
           ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'podman run -d --name ${{ env.CONTAINER_NAME }} --network ${{ env.CONTAINER_NETWORK }} ${{ env.IMAGE_TAG }}'
       - name: Cleanup SSH
         if: always()
-        run: rm ${{ env.LOCAL_SSH_KEY_PATH }}
+        run: |
+          rm ${{ env.LOCAL_SSH_KEY_PATH }}
+          rm ${{ env.KNOWN_HOSTS_PATH }}
