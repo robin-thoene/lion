@@ -1047,6 +1047,8 @@ dependencies = [
  "leptos_axum",
  "leptos_i18n_macro",
  "leptos_meta",
+ "wasm-bindgen",
+ "web-sys",
 ]
 
 [[package]]

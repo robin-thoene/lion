@@ -24,7 +24,7 @@ wasm-bindgen = "0.2.84"
 thiserror = "1.0.40"
 tracing = { version = "0.1.37", optional = true }
 http = "0.2.9"
-leptos_i18n = { version = "0.2.3", default_features = false, features = ["json_files"] }
+leptos_i18n = "0.2.3"
 leptos_icons = { version = "0.1.0", default_features = false, features = ["FaGithubBrands", "FaLinkedinBrands", "FaXingBrands", "FiExternalLink"] }
 
 [features]
