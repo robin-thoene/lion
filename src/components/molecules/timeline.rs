@@ -1,6 +1,6 @@
 use leptos::*;
 
-use crate::components::atoms::timeline_element::{TimelineElement, TimelineEntry};
+use crate::components::atoms::{TimelineElement, TimelineEntry};
 
 #[component]
 pub fn Timeline(content: Vec<TimelineEntry>) -> impl IntoView {

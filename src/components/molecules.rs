@@ -1,2 +1,4 @@
-pub mod timeline;
+mod timeline;
+
+pub use timeline::Timeline;
 
