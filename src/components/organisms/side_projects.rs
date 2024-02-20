@@ -1,6 +1,6 @@
 use leptos::*;
 
-use crate::components::atoms::project_card::{Project, ProjectCard};
+use crate::components::atoms::{Project, ProjectCard};
 use crate::i18n::*;
 
 #[component]
@@ -13,7 +13,11 @@ pub fn SideProjects() -> impl IntoView {
             description: view! {<>{t!(i18n, project_description_lion)}</>}.into_view(),
             github_url: Some(String::from("https://github.com/robin-thoene/lion")),
             website_url: Some(String::from("https://robin-thoene.com")),
-            used_technologies: vec![String::from("Rust"), String::from("Leptos"), String::from("Docker")],
+            used_technologies: vec![
+                String::from("Rust"),
+                String::from("Leptos"),
+                String::from("Docker"),
+            ],
         },
         Project {
             name: String::from("HarzerKurbelixe"),

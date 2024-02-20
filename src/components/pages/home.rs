@@ -1,9 +1,6 @@
 use leptos::*;
 
-use crate::components::organisms::{
-    education_timeline::EducationTimeline, experience_timeline::ExperienceTimeline,
-    side_projects::SideProjects, top_nav::TopNav,
-};
+use crate::components::organisms::{EducationTimeline, ExperienceTimeline, SideProjects, TopNav};
 use crate::i18n::*;
 
 #[component]

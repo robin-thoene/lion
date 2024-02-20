@@ -1,7 +1,7 @@
 use leptos::*;
 use leptos_icons::*;
 
-use crate::components::{atoms::timeline_element::TimelineEntry, molecules::timeline::Timeline};
+use crate::components::{atoms::TimelineEntry, molecules::Timeline};
 use crate::i18n::*;
 
 #[component]

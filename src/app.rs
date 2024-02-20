@@ -2,7 +2,7 @@ use leptos::*;
 use leptos_meta::*;
 use leptos_router::*;
 
-use crate::components::pages::home::Home;
+use crate::components::pages::Home;
 use crate::i18n::*;
 
 #[component]
