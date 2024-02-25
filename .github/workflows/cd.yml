@@ -16,6 +16,7 @@ env:
   CONTAINER_NETWORK: ${{ secrets.CONTAINER_NETWORK }}
   LOCAL_SSH_KEY_PATH: ~/.ssh/id_rsa
   KNOWN_HOSTS_PATH: ~/.ssh/known_hosts
+  SYSTEMCTL_SERVICE_NAME: container-lion.service
 
 jobs:
   build:
@@ -30,18 +31,18 @@ jobs:
           echo "${{ env.SSH_KEY }}" >> ${{ env.LOCAL_SSH_KEY_PATH }}
           chmod 400 ${{ env.LOCAL_SSH_KEY_PATH }}
           ssh-keyscan ${{ env.SSH_HOST }} >> ${{ env.KNOWN_HOSTS_PATH }}
-      # - name: Stop auto container restart
-      #   run: |
-      #     ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'systemctl --user disable container-lion.service'
+      - name: Stop auto container restart
+        run: |
+          ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'systemctl --user disable {{ env.SYSTEMCTL_SERVICE_NAME }}'
       - name: Run latest container
         run: |
           ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'podman pull ${{ env.IMAGE_TAG }}'
           # ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'podman kill --signal=SIGKILL ${{ env.CONTAINER_NAME }}'
           # ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'podman rm ${{ env.CONTAINER_NAME }}'
           ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'podman run -d --name ${{ env.CONTAINER_NAME }} --network ${{ env.CONTAINER_NETWORK }} ${{ env.IMAGE_TAG }}'
-      # - name: Enable auto container restart
-      #   run: |
-      #     ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'systemctl --user enable container-lion.service'
+      - name: Enable auto container restart
+        run: |
+          ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'systemctl --user enable {{ env.SYSTEMCTL_SERVICE_NAME }}'
       - name: Cleanup SSH
         if: always()
         run: |
