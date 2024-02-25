@@ -14,7 +14,7 @@ pub fn EducationTimeline() -> impl IntoView {
                 <div class="flex">
                     "AKAD University"
                     <a class="ml-4" aria-label="AKAD University" href="https://www.akad.de/" target="_blank" rel="noreferrer">
-                        <Icon class="h-5 w-5" icon=Icon::from(FiIcon::FiExternalLink) />
+                        <Icon class="h-5 w-5" icon=icondata::FiExternalLink/>
                     </a>
                 </div>
             }.into_view(),
@@ -28,7 +28,7 @@ pub fn EducationTimeline() -> impl IntoView {
                 <div class="flex">
                     "Berufsbildende Schulen „Otto von Guericke“"
                     <a class="ml-4" aria-label="Berufsbildende Schulen „Otto von Guericke“" href="https://bbsovg-magdeburg.de/" target="_blank" rel="noreferrer">
-                        <Icon class="h-5 w-5" icon=Icon::from(FiIcon::FiExternalLink) />
+                        <Icon class="h-5 w-5" icon=icondata::FiExternalLink/>
                     </a>
                 </div>
             }.into_view(),
@@ -42,7 +42,7 @@ pub fn EducationTimeline() -> impl IntoView {
                 <div class="flex">
                     "Duale Hochschule Baden-Württemberg"
                     <a class="ml-4" aria-label="Duale Hochschule Baden-Württemberg" href="https://www.dhbw.de/" target="_blank" rel="noreferrer">
-                        <Icon class="h-5 w-5" icon=Icon::from(FiIcon::FiExternalLink) />
+                        <Icon class="h-5 w-5" icon=icondata::FiExternalLink/>
                     </a>
                 </div>
             }.into_view(),
@@ -56,7 +56,7 @@ pub fn EducationTimeline() -> impl IntoView {
                 <div class="flex">
                     "Berufsbildende Schulen 1 Goslar -Am Stadtgarten-"
                     <a class="ml-4" aria-label="Berufsbildende Schulen 1 Goslar -Am Stadtgarten-" href="http://www.bbs1goslar.de/" target="_blank" rel="noreferrer">
-                        <Icon class="h-5 w-5" icon=Icon::from(FiIcon::FiExternalLink) />
+                        <Icon class="h-5 w-5" icon=icondata::FiExternalLink/>
                     </a>
                 </div>
             }.into_view(),

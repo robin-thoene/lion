@@ -31,6 +31,7 @@ pub fn SideProjects() -> impl IntoView {
                 String::from("MySQL"),
                 String::from("React"),
                 String::from("TypeScript"),
+                String::from("Docker"),
             ],
         },
         Project {
