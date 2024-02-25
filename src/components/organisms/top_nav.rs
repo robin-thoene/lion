@@ -25,7 +25,7 @@ pub fn TopNav() -> impl IntoView {
                     target="_blank"
                     rel="noreferrer"
                 >
-                    <Icon class="h-5 w-5" icon=Icon::from(FaIcon::FaGithubBrands)/>
+                    <Icon class="h-5 w-5" icon=icondata::FaGithubBrands/>
                 </a>
                 <a
                     aria-label="LinkedIn"
@@ -34,7 +34,7 @@ pub fn TopNav() -> impl IntoView {
                     target="_blank"
                     rel="noreferrer"
                 >
-                    <Icon class="h-5 w-5" icon=Icon::from(FaIcon::FaLinkedinBrands)/>
+                    <Icon class="h-5 w-5" icon=icondata::FaLinkedinBrands/>
                 </a>
                 <a
                     aria-label="XING"
@@ -43,7 +43,7 @@ pub fn TopNav() -> impl IntoView {
                     target="_blank"
                     rel="noreferrer"
                 >
-                    <Icon class="h-5 w-5" icon=Icon::from(FaIcon::FaXingBrands)/>
+                    <Icon class="h-5 w-5" icon=icondata::FaXingBrands/>
                 </a>
             </div>
             <div class="flex">

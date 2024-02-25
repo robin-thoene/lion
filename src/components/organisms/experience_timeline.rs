@@ -14,7 +14,7 @@ pub fn ExperienceTimeline() -> impl IntoView {
                 <div class="flex">
                     "Enpal"
                     <a class="ml-4" aria-label="Enpal" href="https://www.enpal.de/" target="_blank" rel="noreferrer">
-                        <Icon class="h-5 w-5" icon=Icon::from(FiIcon::FiExternalLink) />
+                        <Icon class="h-5 w-5" icon=icondata::FiExternalLink/>
                     </a>
                 </div>
             }.into_view(),
@@ -28,7 +28,7 @@ pub fn ExperienceTimeline() -> impl IntoView {
                 <div class="flex">
                     "DEVDEER GmbH"
                     <a class="ml-4" aria-label="DEVDEER GmbH" href="https://devdeer.com/" target="_blank" rel="noreferrer">
-                        <Icon class="h-5 w-5" icon=Icon::from(FiIcon::FiExternalLink) />
+                        <Icon class="h-5 w-5" icon=icondata::FiExternalLink/>
                     </a>
                 </div>
             }.into_view(),
@@ -42,7 +42,7 @@ pub fn ExperienceTimeline() -> impl IntoView {
                 <div class="flex">
                     "AV-TEST GmbH"
                     <a class="ml-4" aria-label="AV-TEST GmbH" href="https://www.av-test.org/" target="_blank" rel="noreferrer">
-                        <Icon class="h-5 w-5" icon=Icon::from(FiIcon::FiExternalLink) />
+                        <Icon class="h-5 w-5" icon=icondata::FiExternalLink/>
                     </a>
                 </div>
             }.into_view(),
@@ -56,7 +56,7 @@ pub fn ExperienceTimeline() -> impl IntoView {
                 <div class="flex">
                     "Stiftung Umwelt, Natur- und Klimaschutz des Landes Sachsen-Anhalt"
                     <a class="ml-4" aria-label="Stiftung Umwelt, Natur- und Klimaschutz des Landes Sachsen-Anhalt" href="https://www.sunk-lsa.de/" target="_blank" rel="noreferrer">
-                        <Icon class="h-5 w-5" icon=Icon::from(FiIcon::FiExternalLink) />
+                        <Icon class="h-5 w-5" icon=icondata::FiExternalLink/>
                     </a>
                 </div>
             }.into_view(),
@@ -70,7 +70,7 @@ pub fn ExperienceTimeline() -> impl IntoView {
                 <div class="flex">
                     "PricewaterhouseCoopers GmbH"
                     <a class="ml-4" aria-label="PricewaterhouseCoopers GmbH" href="https://www.pwc.de/" target="_blank" rel="noreferrer">
-                        <Icon class="h-5 w-5" icon=Icon::from(FiIcon::FiExternalLink) />
+                        <Icon class="h-5 w-5" icon=icondata::FiExternalLink/>
                     </a>
                 </div>
             }.into_view(),

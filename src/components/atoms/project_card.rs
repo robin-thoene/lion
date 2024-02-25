@@ -19,7 +19,7 @@ pub fn ProjectCard(project: Project) -> impl IntoView {
                     {if let Some(url) = project.github_url {
                         view! {
                             <a aria-label=url.clone() href=url target="_blank" rel="noreferrer">
-                                <Icon class="h-5 w-5" icon=Icon::from(FaIcon::FaGithubBrands)/>
+                                <Icon class="h-5 w-5" icon=icondata::FaGithubBrands/>
                             </a>
                         }
                             .into_view()
@@ -29,7 +29,7 @@ pub fn ProjectCard(project: Project) -> impl IntoView {
                     {if let Some(url) = project.website_url {
                         view! {
                             <a aria-label=url.clone() href=url target="_blank" rel="noreferrer">
-                                <Icon class="h-5 w-5" icon=Icon::from(FiIcon::FiExternalLink)/>
+                                <Icon class="h-5 w-5" icon=icondata::FiExternalLink/>
                             </a>
                         }
                             .into_view()
