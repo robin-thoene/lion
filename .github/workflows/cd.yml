@@ -33,7 +33,7 @@ jobs:
           ssh-keyscan ${{ env.SSH_HOST }} >> ${{ env.KNOWN_HOSTS_PATH }}
       - name: Stop auto container restart
         run: |
-          ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'systemctl --user disable {{ env.SYSTEMCTL_SERVICE_NAME }}'
+          ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'systemctl --user disable ${{ env.SYSTEMCTL_SERVICE_NAME }}'
       - name: Run latest container
         run: |
           ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'podman pull ${{ env.IMAGE_TAG }}'
@@ -42,7 +42,7 @@ jobs:
           ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'podman run -d --name ${{ env.CONTAINER_NAME }} --network ${{ env.CONTAINER_NETWORK }} ${{ env.IMAGE_TAG }}'
       - name: Enable auto container restart
         run: |
-          ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'systemctl --user enable {{ env.SYSTEMCTL_SERVICE_NAME }}'
+          ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'systemctl --user enable ${{ env.SYSTEMCTL_SERVICE_NAME }}'
       - name: Cleanup SSH
         if: always()
         run: |
