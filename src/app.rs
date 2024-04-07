@@ -11,7 +11,7 @@ pub fn App() -> impl IntoView {
     provide_i18n_context();
 
     view! {
-        <Stylesheet id="leptos" href="/pkg/tailwind.css"/>
+        <Stylesheet id="leptos" href="/pkg/lion.css"/>
         <Link rel="shortcut icon" type_="image/ico" href="/favicon.ico"/>
         <Title text="Robin Thöne"/>
         <Meta name="description" content="Robin Thöne - Software Developer"/>
@@ -34,4 +34,3 @@ pub fn App() -> impl IntoView {
         </Router>
     }
 }
-
