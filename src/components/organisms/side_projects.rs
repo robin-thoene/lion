@@ -76,16 +76,6 @@ pub fn SideProjects() -> impl IntoView {
             ],
         },
         Project {
-            name: String::from("fluent-wysiwyg-editor"),
-            description: view! {<>{t!(i18n, project_description_fluent_wysiwyg_editor)}</>}
-                .into_view(),
-            github_url: Some(String::from(
-                "https://github.com/robin-thoene/fluent-wysiwyg-editor",
-            )),
-            website_url: Some(String::from("https://editor.robin-thoene.com")),
-            used_technologies: vec![String::from("TypeScript"), String::from("React")],
-        },
-        Project {
             name: String::from("signalr-chat"),
             description: view! {<>{t!(i18n, project_description_signalr_chat)}</>}.into_view(),
             github_url: Some(String::from("https://github.com/robin-thoene/signalr-chat")),
@@ -107,4 +97,3 @@ pub fn SideProjects() -> impl IntoView {
         </div>
     }
 }
-

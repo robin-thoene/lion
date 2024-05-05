@@ -15,6 +15,5 @@
   "project_description_fromsoft_boss_checker": "Eine kleine Anwendung für mich und meinen Freundeskreis, um den Fortschritt in unseren favorisierten FromSoftware Spielen zu tracken.",
   "project_description_timewaste_tracker": "Projekt zum Ausprobieren von \"recharts\" und der Steam API, indem die Spielzeit einiger Steam Nutzer innerhalb der letzten zwei Wochen grafisch visualisiert wird.",
   "project_description_tailwind_wysiwyg_editor": "\"What You See Is What You Get\" Editor unter Verwendung von \"Tailwind CSS\" mit Markdown als Zielformat.",
-  "project_description_fluent_wysiwyg_editor": "\"What You See Is What You Get\" Editor unter Verwendung von \"Fluent UI React\" mit Markdown und HTML als mögliche Zielformate.",
   "project_description_signalr_chat": "Anonymer globaler Gruppenlivechat als kleine Konzeptanwendung, um die Technologie \"SignalR\" und ihre Implementierung auf Server- und Client-Seite zu testen."
 }
