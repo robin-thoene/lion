@@ -14,6 +14,5 @@
   "project_description_harzerkurbelixe": "This was the first side project to learn technologies for my first full-time job as a developer. In addition, this self-created bike blog has been raising funds for charity for the past few years.",
   "project_description_fromsoft_boss_checker": "A small application for me and my friends to track our progress in our favorite FromSoftware games.",
   "project_description_timewaste_tracker": "Project to try out \"recharts\" and the Steam API by graphically visualizing the playing time of some Steam users within the last two weeks.",
-  "project_description_tailwind_wysiwyg_editor": "\"What You See Is What You Get\" editor using \"Tailwind CSS\" with Markdown as target format.",
-  "project_description_signalr_chat": "Anonymous global group live chat as a small concept application to test the \"SignalR\" technology and its implementation on the server and client side."
+  "project_description_tailwind_wysiwyg_editor": "\"What You See Is What You Get\" editor using \"Tailwind CSS\" with Markdown as target format."
 }

@@ -75,20 +75,6 @@ pub fn SideProjects() -> impl IntoView {
                 String::from("Next.js"),
             ],
         },
-        Project {
-            name: String::from("signalr-chat"),
-            description: view! {<>{t!(i18n, project_description_signalr_chat)}</>}.into_view(),
-            github_url: Some(String::from("https://github.com/robin-thoene/signalr-chat")),
-            website_url: Some(String::from("https://signalr-chat.vercel.app")),
-            used_technologies: vec![
-                String::from("Azure"),
-                String::from("C#"),
-                String::from("ASP.NET Core"),
-                String::from("TypeScript"),
-                String::from("React"),
-                String::from("Next.js"),
-            ],
-        },
     ];
 
     view! {
