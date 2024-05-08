@@ -26,6 +26,7 @@ http = "1.0.0"
 leptos_i18n = "0.3.3"
 leptos_icons = { version = "0.3.0" }
 icondata = "0.3.0"
+serde = "1.0.201"
 
 [features]
 hydrate = ["leptos/hydrate", "leptos_meta/hydrate", "leptos_router/hydrate","leptos_i18n/hydrate"]

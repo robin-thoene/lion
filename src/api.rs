@@ -1,7 +1,14 @@
 use leptos::{server, ServerFnError};
+use serde::{Deserialize, Serialize};
 
-#[server(Health, "/api", "Url", "health")]
-pub async fn health() -> Result<String, ServerFnError> {
-    Ok("Healthy".to_string())
+#[derive(Deserialize, Serialize, Debug)]
+pub struct HealthResponse {
+    message: String,
 }
 
+#[server(Health, "/api", "GetJson", "health")]
+pub async fn health() -> Result<HealthResponse, ServerFnError> {
+    Ok(HealthResponse {
+        message: "healthy".to_string(),
+    })
+}
