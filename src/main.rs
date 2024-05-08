@@ -7,8 +7,7 @@ async fn main() {
     use lion::{app::*, fallback::file_and_error_handler};
     use log::info;
 
-    simple_logger::init_with_level(log::Level::Info)
-        .expect("couldn't initialize logging");
+    simple_logger::init_with_level(log::Level::Info).expect("couldn't initialize logging");
 
     // Setting get_configuration(None) means we'll be using cargo-leptos's env values
     // For deployment these variables are:
@@ -29,7 +28,7 @@ async fn main() {
 
     // run our app with hyper
     // `axum::Server` is a re-export of `hyper::Server`
-    info!("listening on http://{}", &addr);
+    infoinvalid!("listening on http://{}", &addr);
     let listener = tokio::net::TcpListener::bind(&addr).await.unwrap();
     axum::serve(listener, app.into_make_service())
         .await
