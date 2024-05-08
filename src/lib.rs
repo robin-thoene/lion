@@ -1,5 +1,6 @@
 leptos_i18n::load_locales!();
 
+pub mod api;
 pub mod app;
 pub mod components;
 
@@ -17,4 +18,3 @@ pub fn hydrate() {
 
     leptos::mount_to_body(App);
 }
-
