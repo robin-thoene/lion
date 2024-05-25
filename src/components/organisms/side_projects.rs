@@ -68,7 +68,7 @@ pub fn SideProjects() -> impl IntoView {
             github_url: Some(String::from(
                 "https://github.com/robin-thoene/tailwind-wysiwyg-editor",
             )),
-            website_url: Some(String::from("https://editor-v2.robin-thoene.com")),
+            website_url: Some(String::from("https://tailwind-wysiwyg-editor.vercel.app/")),
             used_technologies: vec![
                 String::from("TypeScript"),
                 String::from("React"),

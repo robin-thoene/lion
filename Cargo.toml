@@ -7,26 +7,26 @@ edition = "2021"
 crate-type = ["cdylib", "rlib"]
 
 [dependencies]
-axum = { version = "0.7.4", optional = true }
+axum = { version = "0.7.5", optional = true }
 console_error_panic_hook = "0.1.7"
 console_log = "1"
 leptos = { version = "0.6", features = ["nightly"] }
 leptos_meta = { version = "0.6", features = ["nightly"] }
 leptos_axum = { version = "0.6", optional = true }
 leptos_router = { version = "0.6", features = ["nightly"] }
-log = "0.4.20"
-simple_logger = "4"
+log = "0.4.21"
+simple_logger = "5"
 tokio = { version = "1", features = ["rt-multi-thread", "macros"], optional = true }
 tower = { version = "0.4.13", optional = true }
 tower-http = { version = "0.5", features = ["fs"], optional = true }
-wasm-bindgen = "0.2.91"
-thiserror = "1.0.57"
+wasm-bindgen = "0.2.92"
+thiserror = "1.0.61"
 tracing = { version = "0.1.40", optional = true }
-http = "1.0.0"
+http = "1.1.0"
 leptos_i18n = "0.3.3"
-leptos_icons = { version = "0.3.0" }
-icondata = "0.3.0"
-serde = "1.0.201"
+leptos_icons = { version = "0.3.1" }
+icondata = "0.3.1"
+serde = "1.0.202"
 
 [features]
 hydrate = ["leptos/hydrate", "leptos_meta/hydrate", "leptos_router/hydrate","leptos_i18n/hydrate"]
