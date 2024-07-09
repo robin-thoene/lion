@@ -68,12 +68,22 @@ pub fn SideProjects() -> impl IntoView {
             github_url: Some(String::from(
                 "https://github.com/robin-thoene/tailwind-wysiwyg-editor",
             )),
-            website_url: Some(String::from("https://tailwind-wysiwyg-editor.vercel.app/")),
+            website_url: Some(String::from("https://tailwind-wysiwyg-editor.vercel.app")),
             used_technologies: vec![
                 String::from("TypeScript"),
                 String::from("React"),
                 String::from("Next.js"),
             ],
+        },
+        Project {
+            name: String::from("default-azure-auth-debug"),
+            description: view! {<>{t!(i18n,project_description_default_azure_auth_debug)}</>}
+                .into_view(),
+            github_url: Some(String::from(
+                "https://github.com/robin-thoene/default-azure-auth-debug",
+            )),
+            website_url: Some(String::from("https://www.nuget.org/packages/RobinThoene.DefaultAzureAuthDebug.Console#readme-body-tab")),
+            used_technologies: vec![String::from("Azure"), String::from("C#")],
         },
     ];
 
