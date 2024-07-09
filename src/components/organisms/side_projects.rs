@@ -1,6 +1,7 @@
 use leptos::*;
+use leptos_icons::*;
 
-use crate::components::atoms::{Project, ProjectCard};
+use crate::components::atoms::{Package, Project, ProjectCard};
 use crate::i18n::*;
 
 #[component]
@@ -18,6 +19,7 @@ pub fn SideProjects() -> impl IntoView {
                 String::from("Leptos"),
                 String::from("Docker"),
             ],
+            published_package: None
         },
         Project {
             name: String::from("HarzerKurbelixe"),
@@ -33,6 +35,7 @@ pub fn SideProjects() -> impl IntoView {
                 String::from("TypeScript"),
                 String::from("Docker"),
             ],
+            published_package: None
         },
         Project {
             name: String::from("default-azure-auth-debug"),
@@ -43,6 +46,10 @@ pub fn SideProjects() -> impl IntoView {
             )),
             website_url: Some(String::from("https://www.nuget.org/packages/RobinThoene.DefaultAzureAuthDebug.Console#readme-body-tab")),
             used_technologies: vec![String::from("Azure"), String::from("C#")],
+            published_package: Some(Package {
+                url: String::from("https://www.nuget.org/packages/RobinThoene.DefaultAzureAuthDebug.Console#readme-body-tab"),
+                icon: view!{<Icon class="h-5 w-5" icon=icondata::SiNuget/>}
+            })
         },
         Project {
             name: String::from("fromsoft-boss-checker"),
@@ -57,6 +64,7 @@ pub fn SideProjects() -> impl IntoView {
                 String::from("React"),
                 String::from("Next.js"),
             ],
+            published_package: None
         },
         Project {
             name: String::from("timewaste-tracker"),
@@ -70,6 +78,7 @@ pub fn SideProjects() -> impl IntoView {
                 String::from("React"),
                 String::from("Next.js"),
             ],
+            published_package: None
         },
         Project {
             name: String::from("tailwind-wysiwyg-editor"),
@@ -84,8 +93,9 @@ pub fn SideProjects() -> impl IntoView {
                 String::from("React"),
                 String::from("Next.js"),
             ],
+            published_package: None
         },
-            ];
+    ];
 
     view! {
         <div class="flex flex-row justify-center w-full flex-wrap gap-6">
