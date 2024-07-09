@@ -44,7 +44,7 @@ pub fn SideProjects() -> impl IntoView {
             github_url: Some(String::from(
                 "https://github.com/robin-thoene/default-azure-auth-debug",
             )),
-            website_url: Some(String::from("https://www.nuget.org/packages/RobinThoene.DefaultAzureAuthDebug.Console#readme-body-tab")),
+            website_url: None,
             used_technologies: vec![String::from("Azure"), String::from("C#")],
             published_package: Some(Package {
                 url: String::from("https://www.nuget.org/packages/RobinThoene.DefaultAzureAuthDebug.Console#readme-body-tab"),
