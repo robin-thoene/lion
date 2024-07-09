@@ -38,9 +38,9 @@ jobs:
           ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'systemctl --user disable --now ${{ env.SYSTEMCTL_SERVICE_NAME }}'
           ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'rm .config/systemd/user/${{ env.SYSTEMCTL_SERVICE_NAME }}'
           ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'podman run -d --name ${{ env.CONTAINER_NAME }} --network ${{ env.CONTAINER_NETWORK }} ${{ env.IMAGE_TAG }}'
-          ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'podman generate systemd --new --name ${{ CONTAINER_NAME }} -f'
-          ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'mv ${{ SYSTEMCTL_SERVICE_NAME }} .config/systemd/user'
-          ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'systemctl --user enable ${{ SYSTEMCTL_SERVICE_NAME }}'
+          ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'podman generate systemd --new --name ${{ env.CONTAINER_NAME }} -f'
+          ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'mv ${{ env.SYSTEMCTL_SERVICE_NAME }} .config/systemd/user'
+          ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'systemctl --user enable ${{ env.SYSTEMCTL_SERVICE_NAME }}'
           ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'systemctl --user daemon-reload'
       - name: Cleanup SSH
         if: always()
