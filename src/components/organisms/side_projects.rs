@@ -35,6 +35,16 @@ pub fn SideProjects() -> impl IntoView {
             ],
         },
         Project {
+            name: String::from("default-azure-auth-debug"),
+            description: view! {<>{t!(i18n,project_description_default_azure_auth_debug)}</>}
+                .into_view(),
+            github_url: Some(String::from(
+                "https://github.com/robin-thoene/default-azure-auth-debug",
+            )),
+            website_url: Some(String::from("https://www.nuget.org/packages/RobinThoene.DefaultAzureAuthDebug.Console#readme-body-tab")),
+            used_technologies: vec![String::from("Azure"), String::from("C#")],
+        },
+        Project {
             name: String::from("fromsoft-boss-checker"),
             description: view! {<>{t!(i18n, project_description_fromsoft_boss_checker)}</>}
                 .into_view(),
@@ -75,17 +85,7 @@ pub fn SideProjects() -> impl IntoView {
                 String::from("Next.js"),
             ],
         },
-        Project {
-            name: String::from("default-azure-auth-debug"),
-            description: view! {<>{t!(i18n,project_description_default_azure_auth_debug)}</>}
-                .into_view(),
-            github_url: Some(String::from(
-                "https://github.com/robin-thoene/default-azure-auth-debug",
-            )),
-            website_url: Some(String::from("https://www.nuget.org/packages/RobinThoene.DefaultAzureAuthDebug.Console#readme-body-tab")),
-            used_technologies: vec![String::from("Azure"), String::from("C#")],
-        },
-    ];
+            ];
 
     view! {
         <div class="flex flex-row justify-center w-full flex-wrap gap-6">

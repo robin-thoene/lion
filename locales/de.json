@@ -15,5 +15,5 @@
   "project_description_fromsoft_boss_checker": "Eine kleine Anwendung für mich und meinen Freundeskreis, um den Fortschritt in unseren favorisierten FromSoftware Spielen zu tracken.",
   "project_description_timewaste_tracker": "Projekt zum Ausprobieren von \"recharts\" und der Steam API, indem die Spielzeit einiger Steam Nutzer innerhalb der letzten zwei Wochen grafisch visualisiert wird.",
   "project_description_tailwind_wysiwyg_editor": "\"What You See Is What You Get\" Editor unter Verwendung von \"Tailwind CSS\" mit Markdown als Zielformat.",
-  "project_description_default_azure_auth_debug": "Ein einfaches CLI-Tool, um zu testen, ob die Methode \"new DefaultAzureCredential\" aus dem Paket \"Azure.Identity\" die Authentifizierungsdetails vom lokalen Rechner abholen und ein Token abrufen kann."
+  "project_description_default_azure_auth_debug": "Ein einfaches CLI-Tool, um zu testen, ob die Methode \"DefaultAzureCredential\" aus dem Paket \"Azure.Identity\" die Authentifizierungsdetails vom lokalen Rechner abholen und ein Token abrufen kann."
 }
