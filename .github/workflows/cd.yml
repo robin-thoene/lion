@@ -35,10 +35,10 @@ jobs:
       - name: Run latest container
         run: |
           ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'podman pull ${{ env.IMAGE_TAG }}'
-          ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'systemctl --user stop ${{ env.SYSTEMCTL_SERVICE_NAME }}'
           ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'systemctl --user disable --now ${{ env.SYSTEMCTL_SERVICE_NAME }}'
+          ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'podman kill --signal=SIGKILL ${{ env.CONTAINER_NAME }}'
           ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'rm .config/systemd/user/${{ env.SYSTEMCTL_SERVICE_NAME }}'
-          ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'podman rm ${{ env.CONTAINER_NAME }}'
+          ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'podman rm -f ${{ env.CONTAINER_NAME }}'
           ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'podman run -d --name ${{ env.CONTAINER_NAME }} --network ${{ env.CONTAINER_NETWORK }} ${{ env.IMAGE_TAG }}'
           ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'podman generate systemd --new --name ${{ env.CONTAINER_NAME }} -f'
           ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'mv ${{ env.SYSTEMCTL_SERVICE_NAME }} .config/systemd/user'
