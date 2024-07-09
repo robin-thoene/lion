@@ -1,12 +1,18 @@
 use leptos::*;
 use leptos_icons::*;
 
+pub struct Package {
+    pub icon: View,
+    pub url: String,
+}
+
 pub struct Project {
     pub name: String,
     pub description: View,
     pub github_url: Option<String>,
     pub website_url: Option<String>,
     pub used_technologies: Vec<String>,
+    pub published_package: Option<Package>,
 }
 
 #[component]
@@ -24,7 +30,12 @@ pub fn ProjectCard(project: Project) -> impl IntoView {
                         }
                             .into_view()
                     } else {
-                        view! { <></> }.into_view()
+                        view! {<></>}.into_view()
+                    }}
+                    {if let Some(package) = project.published_package {
+                        view!{<a aria-label=package.url.clone() href=package.url target="_blank" rel="noreferrer">{package.icon}</a>}.into_view()
+                    }else {
+                        view!{<></>}.into_view()
                     }}
                     {if let Some(url) = project.website_url {
                         view! {
@@ -34,9 +45,8 @@ pub fn ProjectCard(project: Project) -> impl IntoView {
                         }
                             .into_view()
                     } else {
-                        view! { <></> }.into_view()
+                        view! {<></>}.into_view()
                     }}
-
                 </div>
             </div>
             <div class="flex flex-row flex-wrap gap-3">
@@ -56,4 +66,3 @@ pub fn ProjectCard(project: Project) -> impl IntoView {
         </div>
     }
 }
-
