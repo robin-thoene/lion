@@ -22,7 +22,7 @@ jobs:
   build:
     name: Run the latest container image
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.outputs.trigger_cd == 'true' }}
     steps:
       - name: Setup SSH
         run: |

@@ -2,10 +2,12 @@ name: CI
 
 on:
   pull_request:
+    types: [opened, reopened, synchronize]
     branches:
       - main
-    types:
-      - closed
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 env:
@@ -18,16 +20,21 @@ jobs:
   build:
     name: Build and push container image
     runs-on: ubuntu-latest
+    outputs:
+      trigger_cd: ${{ steps.push_image.outcome == 'success' && github.event_name == 'push' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Build container image
         run: podman build -t ${{ env.IMAGE_TAG }} -f containerfile .
       - name: Registry login
+        if: github.event_name == 'push'
         uses: redhat-actions/podman-login@v1
         with:
           username: ${{ env.REGISTRY_USER }}
           password: ${{ env.REGISTRY_PASSWORD }}
           registry: ${{ env.REGISTRY }}
       - name: Push container image
+        id: push_image
+        if: github.event_name == 'push'
         run: podman push ${{ env.IMAGE_TAG }}
