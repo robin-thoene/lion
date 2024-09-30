@@ -1,28 +1,55 @@
-name: CD
+name: CI_CD
 
 on:
-  workflow_run:
-    workflows: ["CI"]
-    types:
-      - completed
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches:
+      - main
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
-env:
-  SSH_USER: ${{ secrets.SSH_USER }}
-  SSH_KEY: ${{ secrets.SSH_KEY }}
-  SSH_HOST: ${{ secrets.SSH_HOST }}
-  IMAGE_TAG: ${{ secrets.REGISTRY }}/lion:latest
-  CONTAINER_NAME: lion
-  CONTAINER_NETWORK: ${{ secrets.CONTAINER_NETWORK }}
-  LOCAL_SSH_KEY_PATH: ~/.ssh/id_rsa
-  KNOWN_HOSTS_PATH: ~/.ssh/known_hosts
-  SYSTEMCTL_SERVICE_NAME: container-lion.service
-
 jobs:
-  build:
-    name: Run the latest container image
+  ci:
+    name: Build container image
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.outputs.trigger_cd == 'true' }}
+    env:
+      REGISTRY_USER: ${{ secrets.REGISTRY_USER }}
+      REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
+      REGISTRY: ${{ secrets.REGISTRY }}
+      IMAGE_TAG: ${{ secrets.REGISTRY }}/lion:latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build container image
+        run: podman build -t ${{ env.IMAGE_TAG }} -f containerfile .
+      - name: Registry login
+        if: github.event_name == 'push' || event_name == workflow_dispatch
+        uses: redhat-actions/podman-login@v1
+        with:
+          username: ${{ env.REGISTRY_USER }}
+          password: ${{ env.REGISTRY_PASSWORD }}
+          registry: ${{ env.REGISTRY }}
+      - name: Push container image
+        id: push_image
+        if: github.event_name == 'push' || event_name == workflow_dispatch
+        run: podman push ${{ env.IMAGE_TAG }}
+  cd:
+    name: Deploy the latest container image
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' }}
+    needs: ci
+    env:
+      SSH_USER: ${{ secrets.SSH_USER }}
+      SSH_KEY: ${{ secrets.SSH_KEY }}
+      SSH_HOST: ${{ secrets.SSH_HOST }}
+      IMAGE_TAG: ${{ secrets.REGISTRY }}/lion:latest
+      CONTAINER_NAME: lion
+      CONTAINER_NETWORK: ${{ secrets.CONTAINER_NETWORK }}
+      LOCAL_SSH_KEY_PATH: ~/.ssh/id_rsa
+      KNOWN_HOSTS_PATH: ~/.ssh/known_hosts
+      SYSTEMCTL_SERVICE_NAME: container-lion.service
     steps:
       - name: Setup SSH
         run: |
