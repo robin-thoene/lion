@@ -28,6 +28,7 @@ jobs:
       - name: Build container image
         run: podman build -t ${{ env.IMAGE_TAG }} -f containerfile .
       - name: Registry login
+        if: github.event_name == 'push'
         uses: redhat-actions/podman-login@v1
         with:
           username: ${{ env.REGISTRY_USER }}
