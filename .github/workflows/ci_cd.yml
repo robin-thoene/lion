@@ -11,8 +11,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  ci:
-    name: Build container image
+  ci_cd:
+    name: Build and deploy container
     runs-on: ubuntu-latest
     env:
       REGISTRY_USER: ${{ secrets.REGISTRY_USER }}
@@ -35,44 +35,3 @@ jobs:
         id: push_image
         if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         run: podman push ${{ env.IMAGE_TAG }}
-  cd:
-    name: Deploy the latest container image
-    runs-on: ubuntu-latest
-    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
-    needs: ci
-    env:
-      SSH_USER: ${{ secrets.SSH_USER }}
-      SSH_KEY: ${{ secrets.SSH_KEY }}
-      SSH_HOST: ${{ secrets.SSH_HOST }}
-      IMAGE_TAG: ${{ secrets.REGISTRY }}/lion:latest
-      CONTAINER_NAME: lion
-      CONTAINER_NETWORK: ${{ secrets.CONTAINER_NETWORK }}
-      LOCAL_SSH_KEY_PATH: ~/.ssh/id_rsa
-      KNOWN_HOSTS_PATH: ~/.ssh/known_hosts
-      SYSTEMCTL_SERVICE_NAME: container-lion.service
-    steps:
-      - name: Setup SSH
-        run: |
-          mkdir -p ~/.ssh
-          touch ${{ env.LOCAL_SSH_KEY_PATH }}
-          touch ${{ env.KNOWN_HOSTS_PATH }}
-          echo "${{ env.SSH_KEY }}" >> ${{ env.LOCAL_SSH_KEY_PATH }}
-          chmod 400 ${{ env.LOCAL_SSH_KEY_PATH }}
-          ssh-keyscan ${{ env.SSH_HOST }} >> ${{ env.KNOWN_HOSTS_PATH }}
-      - name: Run latest container
-        run: |
-          ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'podman pull ${{ env.IMAGE_TAG }}'
-          ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'systemctl --user disable --now ${{ env.SYSTEMCTL_SERVICE_NAME }}'
-          ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'podman kill --signal=SIGKILL ${{ env.CONTAINER_NAME }}'
-          ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'rm .config/systemd/user/${{ env.SYSTEMCTL_SERVICE_NAME }}'
-          ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'podman rm -f ${{ env.CONTAINER_NAME }}'
-          ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'podman run -d --name ${{ env.CONTAINER_NAME }} --network ${{ env.CONTAINER_NETWORK }} ${{ env.IMAGE_TAG }}'
-          ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'podman generate systemd --new --name ${{ env.CONTAINER_NAME }} -f'
-          ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'mv ${{ env.SYSTEMCTL_SERVICE_NAME }} .config/systemd/user'
-          ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'systemctl --user enable ${{ env.SYSTEMCTL_SERVICE_NAME }}'
-          ssh ${{ env.SSH_USER }}@${{ env.SSH_HOST }} 'systemctl --user daemon-reload'
-      - name: Cleanup SSH
-        if: always()
-        run: |
-          rm ${{ env.LOCAL_SSH_KEY_PATH }}
-          rm ${{ env.KNOWN_HOSTS_PATH }}
