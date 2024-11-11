@@ -26,7 +26,7 @@ pub fn App() -> impl IntoView {
             name="google-site-verification"
             content="6E4fkyF9xXTXSHWCY2loZyjTPYV3DS6rMEEXRBuW0TU"
         />
-        <Link rel="preload" as_="image" href="/profile.webp"/>
+        <Link rel="preload" as="image" href="/profile.webp"/>
         <Router>
             <Routes>
                 <Route path="" view=move || view! { <Home/> }/>
