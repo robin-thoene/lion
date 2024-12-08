@@ -30,7 +30,7 @@ pub fn TopNav() -> impl IntoView {
                 <a
                     aria-label="LinkedIn"
                     class="ml-4"
-                    href="https://linkedin.com/in/robin-thöne-681870205"
+                    href="https://www.linkedin.com/in/robin-thoene/"
                     target="_blank"
                     rel="noreferrer"
                 >
