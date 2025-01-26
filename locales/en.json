@@ -15,5 +15,7 @@
   "project_description_fromsoft_boss_checker": "A small application for me and my friends to track our progress in our favorite FromSoftware games.",
   "project_description_timewaste_tracker": "Project to try out \"recharts\" and the Steam API by graphically visualizing the playing time of some Steam users within the last two weeks.",
   "project_description_tailwind_wysiwyg_editor": "\"What You See Is What You Get\" editor using \"Tailwind CSS\" with Markdown as target format.",
-  "project_description_default_azure_auth_debug": "A simple CLI tool to test if the method \"DefaultAzureCredential\" from the package \"Azure.Identity\" can pickup the authentication details from the local machine and retrieve a token."
+  "project_description_default_azure_auth_debug": "A simple CLI tool to test if the method \"DefaultAzureCredential\" from the package \"Azure.Identity\" can pickup the authentication details from the local machine and retrieve a token.",
+  "project_description_prhub": "A central entry point to view pull requests across repositories. Currently this targets only the platform Azure DevOps and enables viewing pull request related data across multiple organizations, projects and repositories.",
+  "project_description_hotsave": "A simple CLI tool to immediately backup and restore a backup for a single file using global hotkeys."
 }

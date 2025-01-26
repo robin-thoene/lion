@@ -10,14 +10,15 @@ pub fn SideProjects() -> impl IntoView {
 
     let data = vec![
         Project {
-            name: String::from("lion"),
-            description: view! {<>{t!(i18n, project_description_lion)}</>}.into_view(),
-            github_url: Some(String::from("https://github.com/robin-thoene/lion")),
-            website_url: Some(String::from("https://robin-thoene.com")),
+            name: String::from("pr-hub"),
+            description: view! {<>{t!(i18n, project_description_prhub)}</>}.into_view(),
+            github_url: Some(String::from("https://github.com/CodeNovum/pr-hub")),
+            website_url: None,
             used_technologies: vec![
                 String::from("Rust"),
-                String::from("Leptos"),
-                String::from("Docker"),
+                String::from("Tauri"),
+                String::from("React"),
+                String::from("TypeScript"),
             ],
             published_package: None
         },
@@ -50,6 +51,16 @@ pub fn SideProjects() -> impl IntoView {
                 url: String::from("https://www.nuget.org/packages/RobinThoene.DefaultAzureAuthDebug.Console#readme-body-tab"),
                 icon: view!{<Icon class="h-5 w-5" icon=icondata::SiNuget/>}
             })
+        },
+        Project {
+            name: String::from("hotsave"),
+            description: view! {<>{t!(i18n, project_description_hotsave)}</>}.into_view(),
+            github_url: Some(String::from("https://github.com/robin-thoene/hotsave")),
+            website_url: None,
+            used_technologies: vec![
+                String::from("Rust"),
+            ],
+            published_package: None
         },
         Project {
             name: String::from("fromsoft-boss-checker"),
@@ -95,6 +106,18 @@ pub fn SideProjects() -> impl IntoView {
             ],
             published_package: None
         },
+        Project {
+            name: String::from("lion"),
+            description: view! {<>{t!(i18n, project_description_lion)}</>}.into_view(),
+            github_url: Some(String::from("https://github.com/robin-thoene/lion")),
+            website_url: Some(String::from("https://robin-thoene.com")),
+            used_technologies: vec![
+                String::from("Rust"),
+                String::from("Leptos"),
+                String::from("Docker"),
+            ],
+            published_package: None
+        }
     ];
 
     view! {
@@ -103,3 +126,4 @@ pub fn SideProjects() -> impl IntoView {
         </div>
     }
 }
+
