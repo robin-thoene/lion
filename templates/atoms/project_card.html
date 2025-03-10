@@ -5,15 +5,15 @@
     <div class="mr-8 font-bold">{{ project_name }}</div>
     <div class="flex gap-3">
       {% if let Some(gh) = github_url %}
-      <a href="{{ gh }}" target="_blank" rel="noreferrer">
+      <a aria-label="GitHub" href="{{ gh }}" target="_blank" rel="noreferrer">
         <i class="fa-brands fa-github fa-lg"></i>
       </a>
       {% endif %} {% if let Some(pu) = package_url %}
-      <a href="{{ pu }}" target="_blank" rel="noreferrer">
+      <a aria-label="package" href="{{ pu }}" target="_blank" rel="noreferrer">
         <i class="fa-solid fa-box"></i>
       </a>
       {% endif %} {% if let Some(url) = website_url %}
-      <a href="{{ url }}" target="_blank" rel="noreferrer">
+      <a aria-label="web" href="{{ url }}" target="_blank" rel="noreferrer">
         <i class="fa-solid fa-arrow-up-right-from-square"></i>
       </a>
       {% endif %}

@@ -1,12 +1,23 @@
-use axum::{Router, routing::get};
+use axum::{
+    Router,
+    http::{HeaderValue, header::CACHE_CONTROL},
+    routing::get,
+};
 use lion::handlers::index;
-use tower_http::services::ServeDir;
+use std::env;
+use tower_http::{services::ServeDir, set_header::SetResponseHeaderLayer};
 
 #[tokio::main]
 async fn main() {
+    let static_content_cache = SetResponseHeaderLayer::if_not_present(
+        CACHE_CONTROL,
+        HeaderValue::from_static("max-age=604800"),
+    );
+    let app_content_cache = SetResponseHeaderLayer::if_not_present(
+        CACHE_CONTROL,
+        HeaderValue::from_static("max-age=86400"),
+    );
     let app = Router::new()
-        .route("/", get(index))
-        .nest_service("/static", ServeDir::new("static/"))
         .nest_service(
             "/static/fontawesome-free/css/fontawesome.css",
             ServeDir::new("node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css"),
@@ -18,10 +29,15 @@ async fn main() {
         .nest_service(
             "/static/fontawesome-free/webfonts",
             ServeDir::new("node_modules/@fortawesome/fontawesome-free/webfonts/"),
-        );
-    let listener = tokio::net::TcpListener::bind("127.0.0.1:3000")
-        .await
-        .unwrap();
+        )
+        .nest_service("/static/fonts", ServeDir::new("static/fonts"))
+        .nest_service("/static/img", ServeDir::new("static/img"))
+        .layer(static_content_cache)
+        .nest_service("/static/css", ServeDir::new("static/css"))
+        .route("/", get(index))
+        .layer(app_content_cache);
+    let bind_addr = env::var("BIND_ADDR").unwrap_or("127.0.0.1:3000".to_string());
+    let listener = tokio::net::TcpListener::bind(bind_addr).await.unwrap();
     println!("listening on {}", listener.local_addr().unwrap());
     axum::serve(listener, app).await.unwrap();
 }
