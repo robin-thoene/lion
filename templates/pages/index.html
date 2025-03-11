@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-US">
+<html lang="{{ lang }}">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
@@ -14,8 +14,7 @@
       property="og:image"
       content="https://robin-thoene.com/static/img/open-graph.jpg"
     />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:locale:alternate" content="de_DE" />
+    <meta property="og:locale" content="{{ lang }}" />
     <meta
       name="google-site-verification"
       content="6E4fkyF9xXTXSHWCY2loZyjTPYV3DS6rMEEXRBuW0TU"
@@ -35,7 +34,7 @@
       <div class="flex flex-col gap-20">
         <div class="flex justify-center">
           <img
-            alt="profile image"
+            alt='{{ "index_profile_img_alt_text"|localize(lang) }}'
             src="/static/img/profile.webp"
             class="h-64 w-64 object-cover rounded-full overflow-hidden"
           />
@@ -43,22 +42,25 @@
         <h1 class="text-center">Robin Thöne</h1>
         <div class="flex flex-col md:flex-row w-full gap-20 md:gap-6">
           <div class="flex flex-col flex-1">
-            <h2 class="text-center mb-8">Education</h2>
+            <h2 class="text-center mb-8">
+              {{ "index_education_heading"|localize(lang) }}
+            </h2>
             {{ education_timeline|safe }}
           </div>
           <div class="flex flex-col flex-1">
-            <h2 class="text-center mb-8">Work experience</h2>
+            <h2 class="text-center mb-8">
+              {{ "index_work_exp_heading"|localize(lang) }}
+            </h2>
             {{ work_experience_timeline|safe }}
           </div>
         </div>
         <div>
-          <h2 class="text-center mb-8">Side projects</h2>
+          <h2 class="text-center mb-8">
+            {{ "index_side_projects_heading"|localize(lang) }}
+          </h2>
           <div class="flex justify-center mb-8">
             <p class="max-w-xl text-justify">
-              In addition to my work as a software developer, I occasionally
-              implement smaller projects in my spare time. Mostly to try out and
-              learn new technologies and use them in a practical application.
-              The following is a selection of such projects.
+              {{ "index_side_projects_desc"|localize(lang) }}
             </p>
           </div>
           <div class="flex flex-row justify-center w-full flex-wrap gap-6">
