@@ -7,9 +7,15 @@ use crate::{
     extractors::ExtractUserLang,
 };
 use askama_axum::IntoResponse as _;
-use axum::response::IntoResponse;
-use rust_i18n::t;
+use axum::{
+    Json,
+    http::{StatusCode, header::SET_COOKIE},
+    response::{AppendHeaders, IntoResponse, Redirect},
+};
+use rust_i18n::{available_locales, t};
+use serde::Deserialize;
 
+/// Root page
 pub async fn index(ExtractUserLang(lang): ExtractUserLang) -> impl IntoResponse {
     let akad_title = t!("education_akad_title", locale = lang);
     let it_training_title = t!("education_it_training", locale = lang);
@@ -171,4 +177,32 @@ pub async fn index(ExtractUserLang(lang): ExtractUserLang) -> impl IntoResponse 
         ],
     };
     templ.into_response()
+}
+
+#[derive(Deserialize)]
+pub struct SetLangPayload {
+    lang: String,
+}
+
+/// HTTP endpoint to set the preferred language as cookie
+pub async fn set_lang_cookie(Json(payload): Json<SetLangPayload>) -> impl IntoResponse {
+    // Ensure only supported languages can be set
+    let available = available_locales!();
+    if !available.contains(&payload.lang.as_str()) {
+        return axum::response::IntoResponse::into_response((
+            StatusCode::BAD_REQUEST,
+            "Provided language is not supported".to_string(),
+        ));
+    }
+    // Set the cookie to the desired language and redirect to the main page
+    // ensuring that the correct language is used
+    (
+        StatusCode::FOUND,
+        AppendHeaders([(
+            SET_COOKIE,
+            format!("pref-lang={};Secure;HttpOnly;Path=/", payload.lang),
+        )]),
+        Redirect::to("/"),
+    )
+        .into_response()
 }

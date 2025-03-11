@@ -1,9 +1,9 @@
 use axum::{
     Router,
     http::{HeaderValue, header::CACHE_CONTROL},
-    routing::get,
+    routing::{get, post},
 };
-use lion::handlers::index;
+use lion::handlers::{index, set_lang_cookie};
 use std::env;
 use tower_http::{services::ServeDir, set_header::SetResponseHeaderLayer};
 
@@ -35,7 +35,8 @@ async fn main() {
         .layer(static_content_cache)
         .nest_service("/static/css", ServeDir::new("static/css"))
         .route("/", get(index))
-        .layer(app_content_cache);
+        .layer(app_content_cache)
+        .route("/api/set_lang", post(set_lang_cookie));
     let bind_addr = env::var("BIND_ADDR").unwrap_or("127.0.0.1:3000".to_string());
     let listener = tokio::net::TcpListener::bind(bind_addr).await.unwrap();
     println!("listening on {}", listener.local_addr().unwrap());
