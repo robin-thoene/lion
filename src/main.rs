@@ -19,12 +19,8 @@ async fn main() {
     );
     let app = Router::new()
         .nest_service(
-            "/static/fontawesome-free/css/fontawesome.css",
-            ServeDir::new("node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css"),
-        )
-        .nest_service(
-            "/static/fontawesome-free/css/brands.css",
-            ServeDir::new("node_modules/@fortawesome/fontawesome-free/css/brands.min.css"),
+            "/static/fontawesome-free/css/all.min.css",
+            ServeDir::new("node_modules/@fortawesome/fontawesome-free/css/all.min.css"),
         )
         .nest_service(
             "/static/fontawesome-free/webfonts",
