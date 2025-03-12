@@ -32,7 +32,7 @@
   <div>
     <form id="lang-select" method="POST" action="/api/set_lang">
       <button
-        class="{% if lang == "en" %}text-indigo-400{% endif %} p-1 hover:cursor-pointer"
+        class="{% if lang == "en" %}text-indigo-400{% endif %}"
         {% if lang == "en" %}disabled{% endif %}
         aria-label="set language to english"
         type="submit"
