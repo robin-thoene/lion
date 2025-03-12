@@ -9,12 +9,12 @@ use crate::{
 };
 use askama_axum::IntoResponse as _;
 use axum::{
-    Form,
+    Form, Json,
     http::{StatusCode, header::SET_COOKIE},
     response::{AppendHeaders, IntoResponse, Redirect},
 };
 use rust_i18n::{available_locales, t};
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
 /// Root page
 pub async fn index(ExtractUserLang(lang): ExtractUserLang) -> impl IntoResponse {
@@ -207,4 +207,15 @@ pub async fn set_lang_cookie(Form(payload): Form<SetLangPayload>) -> impl IntoRe
         Redirect::to("/"),
     )
         .into_response()
+}
+
+#[derive(Serialize)]
+pub struct HealthResponse {
+    message: String,
+}
+
+pub async fn health() -> impl IntoResponse {
+    Json(HealthResponse {
+        message: "healthy".to_string(),
+    })
 }
