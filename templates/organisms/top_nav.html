@@ -1,0 +1,56 @@
+<div
+  class="max-w-screen-2xl fixed inset-x-0 mx-auto w-full flex justify-between bg-white dark:bg-black top-0 left-0 p-6"
+>
+  <div class="flex flex-row">
+    <a
+      aria-label="GitHub"
+      href="https://github.com/robin-thoene"
+      target="_blank"
+      rel="noreferrer"
+    >
+      <i class="fa-brands fa-github fa-lg"></i>
+    </a>
+    <a
+      aria-label="LinkedIn"
+      class="ml-4"
+      href="https://www.linkedin.com/in/robin-thoene/"
+      target="_blank"
+      rel="noreferrer"
+    >
+      <i class="fa-brands fa-linkedin fa-lg"></i>
+    </a>
+    <a
+      aria-label="XING"
+      class="ml-4"
+      href="https://www.xing.com/profile/Robin_Thoene"
+      target="_blank"
+      rel="noreferrer"
+    >
+      <i class="fa-brands fa-xing fa-lg"></i>
+    </a>
+  </div>
+  <div>
+    <form id="lang-select" method="POST" action="/api/set_lang">
+      <button
+        class="{% if lang == "en" %}text-indigo-400{% endif %}"
+        {% if lang == "en" %}disabled{% endif %}
+        aria-label="set language to english"
+        type="submit"
+        name="lang"
+        value="en"
+      >
+        [en]
+      </button>
+      <button
+        class="{% if lang == "de" %}text-indigo-400{% endif %}"
+        {% if lang == "de" %}disabled{% endif %}
+        aria-label="Sprache auf Deutsch einstellen"
+        type="submit"
+        name="lang"
+        value="de"
+      >
+        [de]
+      </button>
+    </form>
+  </div>
+</div>

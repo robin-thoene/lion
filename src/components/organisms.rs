@@ -1,10 +1,7 @@
-mod education_timeline;
-mod experience_timeline;
-mod side_projects;
-mod top_nav;
+use askama::Template;
 
-pub use education_timeline::EducationTimeline;
-pub use experience_timeline::ExperienceTimeline;
-pub use side_projects::SideProjects;
-pub use top_nav::TopNav;
-
+#[derive(Template)]
+#[template(path = "organisms/top_nav.html")]
+pub struct TopNav<'a> {
+    pub lang: &'a str,
+}

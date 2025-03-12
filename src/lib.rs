@@ -1,20 +1,8 @@
-leptos_i18n::load_locales!();
+use rust_i18n::i18n;
 
-pub mod api;
-pub mod app;
 pub mod components;
+pub mod extractors;
+pub mod filters;
+pub mod handlers;
 
-#[cfg(feature = "ssr")]
-pub mod fallback;
-
-#[cfg(feature = "hydrate")]
-#[wasm_bindgen::prelude::wasm_bindgen]
-pub fn hydrate() {
-    use crate::app::App;
-
-    // initializes logging using the `log` crate
-    _ = console_log::init_with_level(log::Level::Debug);
-    console_error_panic_hook::set_once();
-
-    leptos::mount_to_body(App);
-}
+i18n!("locales", fallback = "en");

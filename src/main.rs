@@ -1,43 +1,44 @@
-#[cfg(feature = "ssr")]
+use axum::{
+    Router,
+    http::{HeaderValue, header::CACHE_CONTROL},
+    routing::{get, post},
+};
+use lion::handlers::{index, set_lang_cookie};
+use std::env;
+use tower_http::{services::ServeDir, set_header::SetResponseHeaderLayer};
+
 #[tokio::main]
 async fn main() {
-    use axum::Router;
-    use leptos::*;
-    use leptos_axum::{generate_route_list, LeptosRoutes};
-    use lion::{app::*, fallback::file_and_error_handler};
-    use log::info;
-
-    simple_logger::init_with_level(log::Level::Info).expect("couldn't initialize logging");
-
-    // Setting get_configuration(None) means we'll be using cargo-leptos's env values
-    // For deployment these variables are:
-    // <https://github.com/leptos-rs/start-axum#executing-a-server-on-a-remote-machine-without-the-toolchain>
-    // Alternately a file can be specified such as Some("Cargo.toml")
-    // The file would need to be included with the executable when moved to deployment
-    let conf = get_configuration(None).await.unwrap();
-    let addr = conf.leptos_options.site_addr;
-    let leptos_options = conf.leptos_options;
-    // Generate the list of routes in your Leptos App
-    let routes = generate_route_list(App);
-
-    // build our application with a route
+    let static_content_cache = SetResponseHeaderLayer::if_not_present(
+        CACHE_CONTROL,
+        HeaderValue::from_static("max-age=604800"),
+    );
+    let app_content_cache = SetResponseHeaderLayer::if_not_present(
+        CACHE_CONTROL,
+        HeaderValue::from_static("max-age=86400"),
+    );
     let app = Router::new()
-        .leptos_routes(&leptos_options, routes, App)
-        .fallback(file_and_error_handler)
-        .with_state(leptos_options);
-
-    // run our app with hyper
-    // `axum::Server` is a re-export of `hyper::Server`
-    info!("listening on http://{}", &addr);
-    let listener = tokio::net::TcpListener::bind(&addr).await.unwrap();
-    axum::serve(listener, app.into_make_service())
-        .await
-        .unwrap();
-}
-
-#[cfg(not(feature = "ssr"))]
-pub fn main() {
-    // no client-side main function
-    // unless we want this to work with e.g., Trunk for a purely client-side app
-    // see lib.rs for hydration function instead
+        .nest_service(
+            "/static/fontawesome-free/css/fontawesome.css",
+            ServeDir::new("node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css"),
+        )
+        .nest_service(
+            "/static/fontawesome-free/css/brands.css",
+            ServeDir::new("node_modules/@fortawesome/fontawesome-free/css/brands.min.css"),
+        )
+        .nest_service(
+            "/static/fontawesome-free/webfonts",
+            ServeDir::new("node_modules/@fortawesome/fontawesome-free/webfonts/"),
+        )
+        .nest_service("/static/fonts", ServeDir::new("static/fonts"))
+        .nest_service("/static/img", ServeDir::new("static/img"))
+        .layer(static_content_cache)
+        .nest_service("/static/css", ServeDir::new("static/css"))
+        .route("/", get(index))
+        .layer(app_content_cache)
+        .route("/api/set_lang", post(set_lang_cookie));
+    let bind_addr = env::var("BIND_ADDR").unwrap_or("127.0.0.1:3000".to_string());
+    let listener = tokio::net::TcpListener::bind(bind_addr).await.unwrap();
+    println!("listening on {}", listener.local_addr().unwrap());
+    axum::serve(listener, app).await.unwrap();
 }

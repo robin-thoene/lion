@@ -1,4 +1,8 @@
-mod timeline;
+use super::atoms::TimelineElement;
+use askama::Template;
 
-pub use timeline::Timeline;
-
+#[derive(Template)]
+#[template(path = "molecules/timeline.html")]
+pub struct Timeline<'a> {
+    pub timeline_elements: Vec<TimelineElement<'a>>,
+}

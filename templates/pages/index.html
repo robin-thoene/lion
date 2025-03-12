@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="{{ lang }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Robin Thöne - Software Developer" />
+    <meta property="og:title" content="Robin Thöne" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:description"
+      content="Robin Thöne - Software Developer"
+    />
+    <meta
+      property="og:image"
+      content="https://robin-thoene.com/static/img/open-graph.jpg"
+    />
+    <meta property="og:locale" content="{{ lang }}" />
+    <meta
+      name="google-site-verification"
+      content="6E4fkyF9xXTXSHWCY2loZyjTPYV3DS6rMEEXRBuW0TU"
+    />
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css" />
+    <link rel="icon" type="image/ico" href="/static/img/favicon.ico" />
+    <link href="/static/fontawesome-free/css/brands.css" rel="stylesheet" />
+    <link
+      href="/static/fontawesome-free/css/fontawesome.css"
+      rel="stylesheet"
+    />
+    <title>Robin Thöne</title>
+  </head>
+  <body>
+    <main class="w-screen max-w-screen-2xl p-6">
+      {{ top_nav|safe }}
+      <div class="flex flex-col gap-20">
+        <div class="flex justify-center">
+          <img
+            alt='{{ "index_profile_img_alt_text"|localize(lang) }}'
+            src="/static/img/profile.webp"
+            class="h-64 w-64 object-cover rounded-full overflow-hidden"
+          />
+        </div>
+        <h1 class="text-center">Robin Thöne</h1>
+        <div class="flex flex-col md:flex-row w-full gap-20 md:gap-6">
+          <div class="flex flex-col flex-1">
+            <h2 class="text-center mb-8">
+              {{ "index_education_heading"|localize(lang) }}
+            </h2>
+            {{ education_timeline|safe }}
+          </div>
+          <div class="flex flex-col flex-1">
+            <h2 class="text-center mb-8">
+              {{ "index_work_exp_heading"|localize(lang) }}
+            </h2>
+            {{ work_experience_timeline|safe }}
+          </div>
+        </div>
+        <div>
+          <h2 class="text-center mb-8">
+            {{ "index_side_projects_heading"|localize(lang) }}
+          </h2>
+          <div class="flex justify-center mb-8">
+            <p class="max-w-xl text-justify">
+              {{ "index_side_projects_desc"|localize(lang) }}
+            </p>
+          </div>
+          <div class="flex flex-row justify-center w-full flex-wrap gap-6">
+            {% for side_project in side_projects %} {{ side_project|safe }} {%
+            endfor %}
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
