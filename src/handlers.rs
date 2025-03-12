@@ -2,13 +2,14 @@ use crate::{
     components::{
         atoms::{ProjectCard, TimelineElement},
         molecules::Timeline,
+        organisms::TopNav,
         pages::Index,
     },
     extractors::ExtractUserLang,
 };
 use askama_axum::IntoResponse as _;
 use axum::{
-    Json,
+    Form,
     http::{StatusCode, header::SET_COOKIE},
     response::{AppendHeaders, IntoResponse, Redirect},
 };
@@ -36,6 +37,7 @@ pub async fn index(ExtractUserLang(lang): ExtractUserLang) -> impl IntoResponse 
     let lion_title = t!("side_proj_lion_desc", locale = lang);
     // Build the index page template including dependencies
     let templ = Index {
+        top_nav: TopNav { lang: &lang },
         lang: &lang,
         education_timeline: Timeline {
             timeline_elements: vec![
@@ -185,7 +187,7 @@ pub struct SetLangPayload {
 }
 
 /// HTTP endpoint to set the preferred language as cookie
-pub async fn set_lang_cookie(Json(payload): Json<SetLangPayload>) -> impl IntoResponse {
+pub async fn set_lang_cookie(Form(payload): Form<SetLangPayload>) -> impl IntoResponse {
     // Ensure only supported languages can be set
     let available = available_locales!();
     if !available.contains(&payload.lang.as_str()) {

@@ -145,5 +145,5 @@ p {
 }
 
 button {
-  @apply hover:cursor-pointer p-1;
+  @apply hover:cursor-pointer disabled:cursor-auto p-1;
 }

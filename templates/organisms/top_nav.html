@@ -26,7 +26,31 @@
       target="_blank"
       rel="noreferrer"
     >
-      <i class="fa-brands fa-xing fa-lg"/></i>
+      <i class="fa-brands fa-xing fa-lg"></i>
     </a>
+  </div>
+  <div>
+    <form id="lang-select" method="POST" action="/api/set_lang">
+      <button
+        class="{% if lang == "en" %}text-indigo-400{% endif %} p-1 hover:cursor-pointer"
+        {% if lang == "en" %}disabled{% endif %}
+        aria-label="set language to english"
+        type="submit"
+        name="lang"
+        value="en"
+      >
+        [en]
+      </button>
+      <button
+        class="{% if lang == "de" %}text-indigo-400{% endif %}"
+        {% if lang == "de" %}disabled{% endif %}
+        aria-label="Sprache auf Deutsch einstellen"
+        type="submit"
+        name="lang"
+        value="de"
+      >
+        [de]
+      </button>
+    </form>
   </div>
 </div>

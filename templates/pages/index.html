@@ -30,7 +30,7 @@
   </head>
   <body>
     <main class="w-screen max-w-screen-2xl p-6">
-      {% include "../organisms/top_nav.html" %}
+      {{ top_nav|safe }}
       <div class="flex flex-col gap-20">
         <div class="flex justify-center">
           <img
