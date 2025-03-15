@@ -1,14 +1,16 @@
 use axum::{
-    Router,
+    BoxError, Router,
     http::{HeaderValue, header::CACHE_CONTROL},
     routing::{get, post},
 };
+use axum_tracing_opentelemetry::middleware::{OtelAxumLayer, OtelInResponseLayer};
 use lion::handlers::{health, index, set_lang_cookie};
 use std::env;
 use tower_http::{services::ServeDir, set_header::SetResponseHeaderLayer};
 
 #[tokio::main]
-async fn main() {
+async fn main() -> Result<(), BoxError> {
+    let _guard = init_tracing_opentelemetry::tracing_subscriber_ext::init_subscribers()?;
     let static_content_cache = SetResponseHeaderLayer::if_not_present(
         CACHE_CONTROL,
         HeaderValue::from_static("max-age=604800"),
@@ -33,9 +35,12 @@ async fn main() {
         .route("/", get(index))
         .layer(app_content_cache)
         .route("/api/set_lang", post(set_lang_cookie))
+        .layer(OtelInResponseLayer)
+        .layer(OtelAxumLayer::default())
         .route("/api/health", get(health));
     let bind_addr = env::var("BIND_ADDR").unwrap_or("127.0.0.1:3000".to_string());
-    let listener = tokio::net::TcpListener::bind(bind_addr).await.unwrap();
-    println!("listening on {}", listener.local_addr().unwrap());
-    axum::serve(listener, app).await.unwrap();
+    let listener = tokio::net::TcpListener::bind(bind_addr).await?;
+    println!("listening on {}", listener.local_addr()?);
+    axum::serve(listener, app).await?;
+    Ok(())
 }
