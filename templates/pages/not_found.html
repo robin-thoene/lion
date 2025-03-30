@@ -1,0 +1,11 @@
+{% extends "base_layout.html" %} {% block content %}
+<div class="flex flex-col justify-center items-center flex-1">
+  <h1>{{ title }}</h1>
+  <p>
+    {{ "not_found_text"|localize(lang) }}
+    <a class="underline text-indigo-400" aria-label="home" href="/">
+      {{ "not_found_link_home_text"|localize(lang) }}
+    </a>
+  </p>
+</div>
+{% endblock %}

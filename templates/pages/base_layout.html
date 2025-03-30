@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="{{ lang }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Robin Thöne - Software Developer" />
+    <meta property="og:title" content="{{ title }}" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:description"
+      content="Robin Thöne - Software Developer"
+    />
+    <meta
+      property="og:image"
+      content="https://robin-thoene.com/static/img/open-graph.jpg"
+    />
+    <meta property="og:locale" content="{{ lang }}" />
+    <meta
+      name="google-site-verification"
+      content="6E4fkyF9xXTXSHWCY2loZyjTPYV3DS6rMEEXRBuW0TU"
+    />
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css" />
+    <link rel="icon" type="image/ico" href="/static/img/favicon.ico" />
+    <link href="/static/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <main class="w-screen max-w-screen-2xl p-6 flex">
+      {% block content %}{% endblock %}
+    </main>
+  </body>
+</html>

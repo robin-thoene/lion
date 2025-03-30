@@ -4,7 +4,7 @@ use axum::{
     routing::{get, post},
 };
 use axum_tracing_opentelemetry::middleware::{OtelAxumLayer, OtelInResponseLayer};
-use lion::handlers::{health, index, set_lang_cookie};
+use lion::handlers::{fallback, health, index, set_lang_cookie};
 use std::env;
 use tower_http::{services::ServeDir, set_header::SetResponseHeaderLayer};
 
@@ -35,6 +35,7 @@ async fn main() -> Result<(), BoxError> {
         .route("/", get(index))
         .layer(app_content_cache)
         .route("/api/set_lang", post(set_lang_cookie))
+        .fallback(fallback)
         .layer(OtelInResponseLayer)
         .layer(OtelAxumLayer::default())
         .route("/api/health", get(health));

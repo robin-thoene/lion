@@ -20,3 +20,6 @@ side_proj_fromsoft_desc = "Eine kleine Anwendung, um den Fortschritt in FromSoft
 side_proj_timewaste_desc = "Projekt zum Ausprobieren von \"recharts\" und der Steam API, indem die Spielzeit einiger Steam Nutzer innerhalb der letzten zwei Wochen grafisch visualisiert wird."
 side_proj_wysiwyg_desc = "\"What You See Is What You Get\" Editor unter Verwendung von \"Tailwind CSS\" mit Markdown als Zielformat."
 side_proj_lion_desc = "Dieses Projekt beinhaltet den Quellcode dieser Webseite."
+not_found_title = "Nicht gefunden"
+not_found_text = "Komm, gehen wir nach "
+not_found_link_home_text = "Hause"

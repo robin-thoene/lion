@@ -3,7 +3,7 @@ use crate::{
         atoms::{ProjectCard, TimelineElement},
         molecules::Timeline,
         organisms::TopNav,
-        pages::Index,
+        pages::{Index, NotFound},
     },
     extractors::ExtractUserLang,
 };
@@ -37,6 +37,7 @@ pub async fn index(ExtractUserLang(lang): ExtractUserLang) -> impl IntoResponse 
     let lion_title = t!("side_proj_lion_desc", locale = lang);
     // Build the index page template including dependencies
     let templ = Index {
+        title: "Robin Thöne",
         top_nav: TopNav { lang: &lang },
         lang: &lang,
         education_timeline: Timeline {
@@ -214,8 +215,19 @@ pub struct HealthResponse {
     message: String,
 }
 
+/// Endpoint to check health status of the server
 pub async fn health() -> impl IntoResponse {
     Json(HealthResponse {
         message: "healthy".to_string(),
     })
+}
+
+/// Fallback route to serve when the requested resource is not found
+pub async fn fallback(ExtractUserLang(lang): ExtractUserLang) -> impl IntoResponse {
+    let not_found_title = t!("not_found_title", locale = lang);
+    let not_found_templ = NotFound {
+        title: &not_found_title,
+        lang: &lang,
+    };
+    (StatusCode::NOT_FOUND, not_found_templ.into_response())
 }
