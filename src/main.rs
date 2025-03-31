@@ -28,8 +28,7 @@ async fn main() -> Result<(), BoxError> {
             "/static/fontawesome-free/webfonts",
             ServeDir::new("node_modules/@fortawesome/fontawesome-free/webfonts/"),
         )
-        .nest_service("/static/fonts", ServeDir::new("static/fonts"))
-        .nest_service("/static/img", ServeDir::new("static/img"))
+        .nest_service("/static", ServeDir::new("static"))
         .layer(static_content_cache)
         .nest_service("/static/css", ServeDir::new("static/css"))
         .route("/", get(index))
