@@ -7,17 +7,19 @@ use crate::{
     },
     extractors::ExtractUserLang,
 };
-use askama_axum::IntoResponse as _;
+use askama::Template;
 use axum::{
     Form, Json,
     http::{StatusCode, header::SET_COOKIE},
-    response::{AppendHeaders, IntoResponse, Redirect},
+    response::{AppendHeaders, Html, IntoResponse, Redirect},
 };
 use rust_i18n::{available_locales, t};
 use serde::{Deserialize, Serialize};
 
 /// Root page
-pub async fn index(ExtractUserLang(lang): ExtractUserLang) -> impl IntoResponse {
+pub async fn index(
+    ExtractUserLang(lang): ExtractUserLang,
+) -> Result<impl IntoResponse, impl IntoResponse> {
     let akad_title = t!("education_akad_title", locale = lang);
     let it_training_title = t!("education_it_training", locale = lang);
     let auditor_dual_study_title = t!("education_auditor_dual_study", locale = lang);
@@ -179,7 +181,10 @@ pub async fn index(ExtractUserLang(lang): ExtractUserLang) -> impl IntoResponse 
             },
         ],
     };
-    templ.into_response()
+    match templ.render() {
+        Ok(html) => Ok(Html(html)),
+        Err(_err) => Err((StatusCode::INTERNAL_SERVER_ERROR, "Server error")),
+    }
 }
 
 #[derive(Deserialize)]
@@ -223,11 +228,16 @@ pub async fn health() -> impl IntoResponse {
 }
 
 /// Fallback route to serve when the requested resource is not found
-pub async fn fallback(ExtractUserLang(lang): ExtractUserLang) -> impl IntoResponse {
+pub async fn fallback(
+    ExtractUserLang(lang): ExtractUserLang,
+) -> Result<impl IntoResponse, impl IntoResponse> {
     let not_found_title = t!("not_found_title", locale = lang);
     let not_found_templ = NotFound {
         title: &not_found_title,
         lang: &lang,
     };
-    (StatusCode::NOT_FOUND, not_found_templ.into_response())
+    match not_found_templ.render() {
+        Ok(html) => Ok((StatusCode::NOT_FOUND, Html(html))),
+        Err(_err) => Err((StatusCode::INTERNAL_SERVER_ERROR, "Server error")),
+    }
 }
