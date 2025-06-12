@@ -6,15 +6,21 @@ This is the repository for my personal [website](https://robin-thoene.com/).
 
 ## Local development
 
+Ensure to have installed:
+
+- npm
+- [bacon](https://github.com/Canop/bacon)
+
 Start the Rust server
 
 ```shell
-cargo watch -w ./ -x "run"
+bacon run
 ```
 
 Start the watch process for Tailwind CSS
 
 ```shell
+npm i
 npx @tailwindcss/cli -i ./styles/main.css -o ./static/css/main.css --watch
 ```
 
