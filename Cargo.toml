@@ -7,14 +7,14 @@ edition = "2024"
 
 [dependencies]
 askama = { version = "0.14.0" }
-axum = "0.8.4"
-axum-extra = { version = "0.10.1", features = ["cookie"] }
+axum = "0.8.7"
+axum-extra = { version = "0.10.3", features = ["cookie"] }
 axum-tracing-opentelemetry = "0.29.0"
 init-tracing-opentelemetry = { version = "0.29.0", features = [
   "otlp",
   "tracing_subscriber_ext",
 ] }
 rust-i18n = "3.1.5"
-serde = "1.0.219"
-tokio = { version = "1.45.1", features = ["full"] }
-tower-http = { version = "0.6.6", features = ["fs", "set-header"] }
+serde = "1.0.228"
+tokio = { version = "1.48.0", features = ["full"] }
+tower-http = { version = "0.6.7", features = ["fs", "set-header"] }

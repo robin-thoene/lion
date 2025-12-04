@@ -9,12 +9,12 @@ This is the repository for my personal [website](https://robin-thoene.com/).
 Ensure to have installed:
 
 - npm
-- [bacon](https://github.com/Canop/bacon)
+- [watchexec](https://github.com/watchexec/watchexec)
 
 Start the Rust server
 
 ```shell
-bacon run
+watchexec -r -- cargo run
 ```
 
 Start the watch process for Tailwind CSS
