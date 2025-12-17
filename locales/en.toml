@@ -18,7 +18,6 @@ side_proj_daad_desc = "A simple CLI tool to test if the method \"DefaultAzureCre
 side_proj_hotsave_desc = "A simple CLI tool to immediately backup and restore a backup for a single file using global hotkeys."
 side_proj_fromsoft_desc = "A small application to track the progress in FromSoftware games."
 side_proj_timewaste_desc = "Project to try out \"recharts\" and the Steam API by graphically visualizing the playing time of some Steam users within the last two weeks."
-side_proj_wysiwyg_desc = "\"What You See Is What You Get\" editor using \"Tailwind CSS\" with Markdown as target format."
 side_proj_lion_desc = "This project contains the source code of this website."
 not_found_title = "Not Found"
 not_found_text = "Come, let's go "

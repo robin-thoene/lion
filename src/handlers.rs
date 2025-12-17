@@ -35,7 +35,6 @@ pub async fn index(
     let hotsave_title = t!("side_proj_hotsave_desc", locale = lang);
     let fromsoft_title = t!("side_proj_fromsoft_desc", locale = lang);
     let timewaste_title = t!("side_proj_timewaste_desc", locale = lang);
-    let wysiwyg_title = t!("side_proj_wysiwyg_desc", locale = lang);
     let lion_title = t!("side_proj_lion_desc", locale = lang);
     // Build the index page template including dependencies
     let templ = Index {
@@ -160,14 +159,6 @@ pub async fn index(
                 project_description: &timewaste_title,
                 github_url: Some("https://github.com/robin-thoene/timewaste-tracker"),
                 website_url: Some("https://timewaste-tracker.vercel.app/"),
-                package_url: None,
-                technologies: vec!["TypeScript", "React", "Next.js"],
-            },
-            ProjectCard {
-                project_name: "tailwind-wysiwyg-editor",
-                project_description: &wysiwyg_title,
-                github_url: Some("https://github.com/robin-thoene/tailwind-wysiwyg-editor"),
-                website_url: Some("https://tailwind-wysiwyg-editor.vercel.app/"),
                 package_url: None,
                 technologies: vec!["TypeScript", "React", "Next.js"],
             },
