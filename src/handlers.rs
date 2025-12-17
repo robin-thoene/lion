@@ -29,14 +29,14 @@ pub async fn index(
     let avtest_title = t!("work_exp_avtest", locale = lang);
     let foej_title = t!("work_exp_foej", locale = lang);
     let pwc_title = t!("work_exp_pwc", locale = lang);
-    let pr_hub_title = t!("side_proj_pr_hub_desc", locale = lang);
-    let hk_title = t!("side_proj_hk_desc", locale = lang);
-    let daad_title = t!("side_proj_daad_desc", locale = lang);
-    let hotsave_title = t!("side_proj_hotsave_desc", locale = lang);
-    let fromsoft_title = t!("side_proj_fromsoft_desc", locale = lang);
-    let timewaste_title = t!("side_proj_timewaste_desc", locale = lang);
-    let wysiwyg_title = t!("side_proj_wysiwyg_desc", locale = lang);
-    let lion_title = t!("side_proj_lion_desc", locale = lang);
+    let wiretui_desc = t!("side_proj_wiretui_desc", locale = lang);
+    let pr_hub_desc = t!("side_proj_pr_hub_desc", locale = lang);
+    let hk_desc = t!("side_proj_hk_desc", locale = lang);
+    let daad_desc = t!("side_proj_daad_desc", locale = lang);
+    let hotsave_desc = t!("side_proj_hotsave_desc", locale = lang);
+    let fromsoft_desc = t!("side_proj_fromsoft_desc", locale = lang);
+    let timewaste_desc = t!("side_proj_timewaste_desc", locale = lang);
+    let lion_desc = t!("side_proj_lion_desc", locale = lang);
     // Build the index page template including dependencies
     let templ = Index {
         title: "Robin Thöne",
@@ -106,8 +106,16 @@ pub async fn index(
         },
         side_projects: vec![
             ProjectCard {
+                project_name: "wiretui",
+                project_description: &wiretui_desc,
+                github_url: Some("https://github.com/robin-thoene/wiretui"),
+                website_url: None,
+                package_url: None,
+                technologies: vec!["Rust", "ratatui"],
+            },
+            ProjectCard {
                 project_name: "pr-hub",
-                project_description: &pr_hub_title,
+                project_description: &pr_hub_desc,
                 github_url: Some("https://github.com/CodeNovum/pr-hub"),
                 website_url: None,
                 package_url: Some("https://github.com/CodeNovum/pr-hub/releases"),
@@ -115,7 +123,7 @@ pub async fn index(
             },
             ProjectCard {
                 project_name: "HarzerKurbelixe",
-                project_description: &hk_title,
+                project_description: &hk_desc,
                 github_url: None,
                 website_url: Some("https://harzerkurbelixe.de/"),
                 package_url: None,
@@ -131,7 +139,7 @@ pub async fn index(
             },
             ProjectCard {
                 project_name: "default-azure-auth-debug",
-                project_description: &daad_title,
+                project_description: &daad_desc,
                 github_url: Some("https://github.com/robin-thoene/default-azure-auth-debug"),
                 website_url: None,
                 package_url: Some(
@@ -141,7 +149,7 @@ pub async fn index(
             },
             ProjectCard {
                 project_name: "hotsave",
-                project_description: &hotsave_title,
+                project_description: &hotsave_desc,
                 github_url: Some("https://github.com/robin-thoene/hotsave"),
                 website_url: None,
                 package_url: Some("https://github.com/robin-thoene/hotsave/releases"),
@@ -149,7 +157,7 @@ pub async fn index(
             },
             ProjectCard {
                 project_name: "fromsoft-boss-checker",
-                project_description: &fromsoft_title,
+                project_description: &fromsoft_desc,
                 github_url: Some("https://github.com/robin-thoene/fromsoft-boss-checker"),
                 website_url: Some("https://fromsoft-boss-checker.vercel.app/"),
                 package_url: None,
@@ -157,23 +165,15 @@ pub async fn index(
             },
             ProjectCard {
                 project_name: "timewaste-tracker",
-                project_description: &timewaste_title,
+                project_description: &timewaste_desc,
                 github_url: Some("https://github.com/robin-thoene/timewaste-tracker"),
                 website_url: Some("https://timewaste-tracker.vercel.app/"),
                 package_url: None,
                 technologies: vec!["TypeScript", "React", "Next.js"],
             },
             ProjectCard {
-                project_name: "tailwind-wysiwyg-editor",
-                project_description: &wysiwyg_title,
-                github_url: Some("https://github.com/robin-thoene/tailwind-wysiwyg-editor"),
-                website_url: Some("https://tailwind-wysiwyg-editor.vercel.app/"),
-                package_url: None,
-                technologies: vec!["TypeScript", "React", "Next.js"],
-            },
-            ProjectCard {
                 project_name: "lion",
-                project_description: &lion_title,
+                project_description: &lion_desc,
                 github_url: Some("https://github.com/robin-thoene/lion"),
                 website_url: Some("https://robin-thoene.com/"),
                 package_url: None,

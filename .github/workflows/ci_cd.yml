@@ -18,7 +18,7 @@ jobs:
       REGISTRY_USER: ${{ secrets.REGISTRY_USER }}
       REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
       REGISTRY: ${{ secrets.REGISTRY }}
-      IMAGE_TAG: ${{ secrets.REGISTRY }}/lion:latest
+      IMAGE_TAG: ${{ secrets.REGISTRY }}/lion:${{ github.run_number }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
