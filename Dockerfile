@@ -4,7 +4,7 @@ COPY . .
 RUN npm i
 RUN npx @tailwindcss/cli -i ./styles/main.css -o ./static/css/main.css --minify
 
-FROM rust:1.85 AS builder
+FROM rust:1.94.1-slim AS builder
 WORKDIR /app
 COPY . .
 COPY --from=node-builder ./app/node_modules ./node_modules
